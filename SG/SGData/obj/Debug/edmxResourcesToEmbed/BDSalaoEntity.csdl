@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DBSalaoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Agenda">
+    <Key>
+      <PropertyRef Name="IdAgenda" />
+    </Key>
+    <Property Name="IdAgenda" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Data" Type="DateTime" Nullable="false" />
+    <Property Name="HoraInicio" Type="Time" Nullable="false" Precision="7" />
+    <Property Name="HoraFim" Type="Time" Nullable="false" Precision="7" />
+    <NavigationProperty Name="Profissional" Relationship="DBSalaoModel.ProfissionalAgenda" FromRole="Agenda" ToRole="Profissional" />
+    <NavigationProperty Name="Cliente" Relationship="DBSalaoModel.ClienteAgenda" FromRole="Agenda" ToRole="Cliente" />
+    <Property Name="Complemento" Type="String" MaxLength="200" Nullable="true" />
+    <Property Name="Situacao" Type="String" Nullable="false" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="Cliente">
+    <Key>
+      <PropertyRef Name="IdCliente" />
+    </Key>
+    <Property Name="IdCliente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nome" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Telefone" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="true" />
+    <Property Name="Celular" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Endereco" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="true" />
+    <Property Name="Numero" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="true" />
+    <Property Name="CPF" Type="String" MaxLength="11" FixedLength="false" Unicode="true" Nullable="true" />
+    <Property Name="Nascimento" Type="DateTime" Precision="3" Nullable="true" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="true" />
+    <Property Name="IdUF" Type="Int32" Nullable="true" />
+    <NavigationProperty Name="UF" Relationship="Self.FK_UFCliente" FromRole="Cliente" ToRole="UF" />
+    <Property Name="Bairro" Type="String" Nullable="true" MaxLength="50" />
+    <Property Name="Cidade" Type="String" Nullable="true" MaxLength="50" />
+    <NavigationProperty Name="Agenda" Relationship="DBSalaoModel.ClienteAgenda" FromRole="Cliente" ToRole="Agenda" />
+  </EntityType>
+  <EntityType Name="UF">
+    <Key>
+      <PropertyRef Name="IdUF" />
+    </Key>
+    <Property Name="IdUF" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UFSigla" Type="String" MaxLength="2" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Descricao" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Cliente" Relationship="Self.FK_UFCliente" FromRole="UF" ToRole="Cliente" />
+  </EntityType>
+  <Association Name="FK_UFCliente">
+    <End Role="UF" Type="Self.UF" Multiplicity="0..1" />
+    <End Role="Cliente" Type="Self.Cliente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UF">
+        <PropertyRef Name="IdUF" />
+      </Principal>
+      <Dependent Role="Cliente">
+        <PropertyRef Name="IdUF" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DBSalaoEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Agenda" EntityType="Self.Agenda" />
+    <EntitySet Name="Cliente" EntityType="Self.Cliente" />
+    <EntitySet Name="UF" EntityType="Self.UF" />
+    <AssociationSet Name="FK_UFCliente" Association="Self.FK_UFCliente">
+      <End Role="UF" EntitySet="UF" />
+      <End Role="Cliente" EntitySet="Cliente" />
+    </AssociationSet>
+    <EntitySet Name="Profissional" EntityType="DBSalaoModel.Profissional" />
+    <AssociationSet Name="ProfissionalAgenda" Association="DBSalaoModel.ProfissionalAgenda">
+      <End Role="Profissional" EntitySet="Profissional" />
+      <End Role="Agenda" EntitySet="Agenda" />
+    </AssociationSet>
+    <AssociationSet Name="ClienteAgenda" Association="DBSalaoModel.ClienteAgenda">
+      <End Role="Cliente" EntitySet="Cliente" />
+      <End Role="Agenda" EntitySet="Agenda" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Profissional">
+    <Key>
+      <PropertyRef Name="IdProfissional" />
+    </Key>
+    <Property Name="IdProfissional" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nome" Type="String" MaxLength="50" Nullable="false" />
+    <Property Name="Telefone" Type="String" MaxLength="15" Nullable="true" />
+    <Property Name="Celular" Type="String" MaxLength="15" Nullable="false" />
+    <Property Name="Endereco" Type="String" Nullable="true" />
+    <Property Name="Bairro" Type="String" MaxLength="50" Nullable="true" />
+    <Property Name="Cidade" Type="String" Nullable="false" MaxLength="50" />
+    <Property Name="Numero" Type="String" Nullable="false" />
+    <Property Name="Nascimento" Type="DateTime" Nullable="true" />
+    <NavigationProperty Name="Agenda" Relationship="DBSalaoModel.ProfissionalAgenda" FromRole="Profissional" ToRole="Agenda" />
+    <Property Name="Email" Type="String" Nullable="true" MaxLength="50" />
+    <Property Name="ParticipaAgenda" Type="String" Nullable="false" MaxLength="1" />
+  </EntityType>
+  <Association Name="ProfissionalAgenda">
+    <End Type="DBSalaoModel.Profissional" Role="Profissional" Multiplicity="1" />
+    <End Type="DBSalaoModel.Agenda" Role="Agenda" Multiplicity="*" />
+  </Association>
+  <Association Name="ClienteAgenda">
+    <End Type="DBSalaoModel.Cliente" Role="Cliente" Multiplicity="1" />
+    <End Type="DBSalaoModel.Agenda" Role="Agenda" Multiplicity="*" />
+  </Association>
+</Schema>

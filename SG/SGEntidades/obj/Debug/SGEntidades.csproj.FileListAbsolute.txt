@@ -1,0 +1,11 @@
+D:\Desenvolvimento\SGSalao\SG\SGEntidades\bin\Debug\SGEntidades.dll
+D:\Desenvolvimento\SGSalao\SG\SGEntidades\bin\Debug\SGEntidades.pdb
+D:\Desenvolvimento\SGSalao\SG\SGEntidades\obj\Debug\SGEntidades.csprojResolveAssemblyReference.cache
+D:\Desenvolvimento\SGSalao\SG\SGEntidades\obj\Debug\SGEntidades.dll
+D:\Desenvolvimento\SGSalao\SG\SGEntidades\obj\Debug\SGEntidades.pdb
+D:\Desenvolvimento\SGSalao\SG\SGEntidades\bin\Debug\SGCore.dll
+D:\Desenvolvimento\SGSalao\SG\SGEntidades\bin\Debug\SGCore.pdb
+D:\Desenvolvimento\SGSalao\SG\bin\Debug\SGEntidades.dll
+D:\Desenvolvimento\SGSalao\SG\bin\Debug\SGEntidades.pdb
+D:\Desenvolvimento\SGSalao\bin\Debug\SGEntidades.dll
+D:\Desenvolvimento\SGSalao\bin\Debug\SGEntidades.pdb

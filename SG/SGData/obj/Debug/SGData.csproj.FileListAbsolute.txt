@@ -1,0 +1,10 @@
+D:\Desenvolvimento\SGSalao\SG\SGData\bin\Debug\SGData.dll.config
+D:\Desenvolvimento\SGSalao\SG\SGData\bin\Debug\SGData.dll
+D:\Desenvolvimento\SGSalao\SG\SGData\bin\Debug\SGData.pdb
+D:\Desenvolvimento\SGSalao\SG\SGData\bin\Debug\EntityFramework.dll
+D:\Desenvolvimento\SGSalao\SG\SGData\bin\Debug\EntityFramework.SqlServer.dll
+D:\Desenvolvimento\SGSalao\SG\SGData\bin\Debug\EntityFramework.xml
+D:\Desenvolvimento\SGSalao\SG\SGData\bin\Debug\EntityFramework.SqlServer.xml
+D:\Desenvolvimento\SGSalao\SG\SGData\obj\Debug\SGData.csprojResolveAssemblyReference.cache
+D:\Desenvolvimento\SGSalao\SG\SGData\obj\Debug\SGData.dll
+D:\Desenvolvimento\SGSalao\SG\SGData\obj\Debug\SGData.pdb

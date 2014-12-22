@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DBSalaoModelStoreContainer" CdmEntityContainer="DBSalaoEntities">
+    <EntitySetMapping Name="Agenda">
+      <EntityTypeMapping TypeName="IsTypeOf(DBSalaoModel.Agenda)">
+        <MappingFragment StoreEntitySet="Agenda">
+          <ScalarProperty Name="IdAgenda" ColumnName="IdAgenda" />
+          <ScalarProperty Name="Data" ColumnName="Data" />
+          <ScalarProperty Name="HoraInicio" ColumnName="HoraInicio" />
+          <ScalarProperty Name="HoraFim" ColumnName="HoraFim" />
+          <ScalarProperty Name="Complemento" ColumnName="Complemento" />
+          <ScalarProperty Name="Situacao" ColumnName="Situacao" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cliente">
+      <EntityTypeMapping TypeName="IsTypeOf(DBSalaoModel.Cliente)">
+        <MappingFragment StoreEntitySet="Cliente">
+          <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="Telefone" ColumnName="Telefone" />
+          <ScalarProperty Name="Celular" ColumnName="Celular" />
+          <ScalarProperty Name="Endereco" ColumnName="Endereco" />
+          <ScalarProperty Name="Numero" ColumnName="Numero" />
+          <ScalarProperty Name="CPF" ColumnName="CPF" />
+          <ScalarProperty Name="Nascimento" ColumnName="Nascimento" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="IdUF" ColumnName="IdUF" />
+          <ScalarProperty Name="Bairro" ColumnName="Bairro" />
+          <ScalarProperty Name="Cidade" ColumnName="Cidade" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UF">
+      <EntityTypeMapping TypeName="IsTypeOf(DBSalaoModel.UF)">
+        <MappingFragment StoreEntitySet="UF">
+          <ScalarProperty Name="IdUF" ColumnName="IdUF" />
+          <ScalarProperty Name="UFSigla" ColumnName="UFSigla" />
+          <ScalarProperty Name="Descricao" ColumnName="Descricao" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Profissional">
+      <EntityTypeMapping TypeName="IsTypeOf(DBSalaoModel.Profissional)">
+        <MappingFragment StoreEntitySet="Profissional">
+          <ScalarProperty Name="IdProfissional" ColumnName="IdProfissional" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="Telefone" ColumnName="Telefone" />
+          <ScalarProperty Name="Celular" ColumnName="Celular" />
+          <ScalarProperty Name="Endereco" ColumnName="Endereco" />
+          <ScalarProperty Name="Bairro" ColumnName="Bairro" />
+          <ScalarProperty Name="Cidade" ColumnName="Cidade" />
+          <ScalarProperty Name="Numero" ColumnName="Numero" />
+          <ScalarProperty Name="Nascimento" ColumnName="Nascimento" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="ParticipaAgenda" ColumnName="ParticipaAgenda" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="ProfissionalAgenda" TypeName="DBSalaoModel.ProfissionalAgenda" StoreEntitySet="Agenda">
+      <EndProperty Name="Profissional">
+        <ScalarProperty Name="IdProfissional" ColumnName="Profissional_IdProfissional" />
+      </EndProperty>
+      <EndProperty Name="Agenda">
+        <ScalarProperty Name="IdAgenda" ColumnName="IdAgenda" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ClienteAgenda" TypeName="DBSalaoModel.ClienteAgenda" StoreEntitySet="Agenda">
+      <EndProperty Name="Cliente">
+        <ScalarProperty Name="IdCliente" ColumnName="Cliente_IdCliente" />
+      </EndProperty>
+      <EndProperty Name="Agenda">
+        <ScalarProperty Name="IdAgenda" ColumnName="IdAgenda" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

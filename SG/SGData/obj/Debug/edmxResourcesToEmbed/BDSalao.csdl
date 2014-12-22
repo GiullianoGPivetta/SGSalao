@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="BDSalao" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+  <EntityContainer Name="BDSalaoContainer" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Cliente" EntityType="BDSalao.Cliente" />
+    <EntitySet Name="Cidade" EntityType="BDSalao.Cidade" />
+    <EntitySet Name="Bairro" EntityType="BDSalao.Bairro" />
+    <EntitySet Name="UF" EntityType="BDSalao.UF" />
+    <AssociationSet Name="UFCidade" Association="BDSalao.UFCidade">
+      <End Role="UF" EntitySet="UF" />
+      <End Role="Cidade" EntitySet="Cidade" />
+    </AssociationSet>
+    <AssociationSet Name="CidadeBairro" Association="BDSalao.CidadeBairro">
+      <End Role="Cidade" EntitySet="Cidade" />
+      <End Role="Bairro" EntitySet="Bairro" />
+    </AssociationSet>
+    <AssociationSet Name="UFCliente" Association="BDSalao.UFCliente">
+      <End Role="UF" EntitySet="UF" />
+      <End Role="Cliente" EntitySet="Cliente" />
+    </AssociationSet>
+    <AssociationSet Name="CidadeCliente" Association="BDSalao.CidadeCliente">
+      <End Role="Cidade" EntitySet="Cidade" />
+      <End Role="Cliente" EntitySet="Cliente" />
+    </AssociationSet>
+    <AssociationSet Name="BairroCliente" Association="BDSalao.BairroCliente">
+      <End Role="Bairro" EntitySet="Bairro" />
+      <End Role="Cliente" EntitySet="Cliente" />
+    </AssociationSet>
+    <EntitySet Name="Agenda" EntityType="BDSalao.Agenda" />
+    <AssociationSet Name="ClienteAgenda" Association="BDSalao.ClienteAgenda">
+      <End Role="Cliente" EntitySet="Cliente" />
+      <End Role="Agenda" EntitySet="Agenda" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Cliente">
+    <Key>
+      <PropertyRef Name="IdCliente" />
+    </Key>
+    <Property Name="IdCliente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nome" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Telefone" Type="String" Nullable="false" MaxLength="15" Unicode="true" FixedLength="false" />
+    <Property Name="Celular" Type="String" Nullable="false" MaxLength="15" Unicode="true" FixedLength="false" />
+    <Property Name="Endereco" Type="String" Nullable="true" MaxLength="30" Unicode="true" FixedLength="false" />
+    <Property Name="Numero" Type="String" Nullable="true" MaxLength="10" Unicode="true" FixedLength="false" />
+    <Property Name="CPF" Type="String" Nullable="true" MaxLength="11" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="UF" Relationship="BDSalao.UFCliente" FromRole="Cliente" ToRole="UF" />
+    <NavigationProperty Name="Cidade" Relationship="BDSalao.CidadeCliente" FromRole="Cliente" ToRole="Cidade" />
+    <NavigationProperty Name="Bairro" Relationship="BDSalao.BairroCliente" FromRole="Cliente" ToRole="Bairro" />
+    <NavigationProperty Name="Agenda" Relationship="BDSalao.ClienteAgenda" FromRole="Cliente" ToRole="Agenda" />
+    <Property Name="Nascimento" Type="DateTime" Nullable="true" Precision="3" />
+    <Property Name="Email" Type="String" Nullable="true" MaxLength="50" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Cidade">
+    <Key>
+      <PropertyRef Name="IdCidade" />
+    </Key>
+    <Property Name="IdCidade" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="UF" Relationship="BDSalao.UFCidade" FromRole="Cidade" ToRole="UF" />
+    <NavigationProperty Name="Bairro" Relationship="BDSalao.CidadeBairro" FromRole="Cidade" ToRole="Bairro" />
+    <NavigationProperty Name="Cliente" Relationship="BDSalao.CidadeCliente" FromRole="Cidade" ToRole="Cliente" />
+    <Property Name="Nome" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Bairro">
+    <Key>
+      <PropertyRef Name="IdBairro" />
+    </Key>
+    <Property Name="IdBairro" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="Cidade" Relationship="BDSalao.CidadeBairro" FromRole="Bairro" ToRole="Cidade" />
+    <NavigationProperty Name="Cliente" Relationship="BDSalao.BairroCliente" FromRole="Bairro" ToRole="Cliente" />
+    <Property Name="Nome" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="UF">
+    <Key>
+      <PropertyRef Name="IdUF" />
+    </Key>
+    <Property Name="IdUF" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UFSigla" Type="String" Nullable="false" MaxLength="2" Unicode="true" FixedLength="false" />
+    <Property Name="Descricao" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Cidade" Relationship="BDSalao.UFCidade" FromRole="UF" ToRole="Cidade" />
+    <NavigationProperty Name="Cliente" Relationship="BDSalao.UFCliente" FromRole="UF" ToRole="Cliente" />
+  </EntityType>
+  <Association Name="UFCidade">
+    <End Type="BDSalao.UF" Role="UF" Multiplicity="1" />
+    <End Type="BDSalao.Cidade" Role="Cidade" Multiplicity="*" />
+  </Association>
+  <Association Name="CidadeBairro">
+    <End Type="BDSalao.Cidade" Role="Cidade" Multiplicity="1" />
+    <End Type="BDSalao.Bairro" Role="Bairro" Multiplicity="*" />
+  </Association>
+  <Association Name="UFCliente">
+    <End Type="BDSalao.UF" Role="UF" Multiplicity="0..1" />
+    <End Type="BDSalao.Cliente" Role="Cliente" Multiplicity="*" />
+  </Association>
+  <Association Name="CidadeCliente">
+    <End Type="BDSalao.Cidade" Role="Cidade" Multiplicity="0..1" />
+    <End Type="BDSalao.Cliente" Role="Cliente" Multiplicity="*" />
+  </Association>
+  <Association Name="BairroCliente">
+    <End Type="BDSalao.Bairro" Role="Bairro" Multiplicity="0..1" />
+    <End Type="BDSalao.Cliente" Role="Cliente" Multiplicity="*" />
+  </Association>
+  <EntityType Name="Agenda">
+    <Key>
+      <PropertyRef Name="IdAgenda" />
+    </Key>
+    <Property Name="IdAgenda" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="Cliente" Relationship="BDSalao.ClienteAgenda" FromRole="Agenda" ToRole="Cliente" />
+    <Property Name="Data" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="HoraInicio" Type="Time" Nullable="false" Precision="7" />
+    <Property Name="HoraFim" Type="Time" Nullable="false" Precision="7" />
+  </EntityType>
+  <Association Name="ClienteAgenda">
+    <End Type="BDSalao.Cliente" Role="Cliente" Multiplicity="1" />
+    <End Type="BDSalao.Agenda" Role="Agenda" Multiplicity="*" />
+  </Association>
+</Schema>

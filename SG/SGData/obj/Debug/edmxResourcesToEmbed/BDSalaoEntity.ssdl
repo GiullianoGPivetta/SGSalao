@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DBSalaoModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="DBSalaoModelStoreContainer">
+    <EntitySet Name="Agenda" EntityType="DBSalaoModel.Store.Agenda" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Cliente" EntityType="DBSalaoModel.Store.Cliente" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UF" EntityType="DBSalaoModel.Store.UF" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Profissional" EntityType="DBSalaoModel.Store.Profissional" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_UFCliente" Association="DBSalaoModel.Store.FK_UFCliente">
+      <End Role="UF" EntitySet="UF" />
+      <End Role="Cliente" EntitySet="Cliente" />
+    </AssociationSet>
+    <AssociationSet Name="ProfissionalAgenda" Association="DBSalaoModel.Store.ProfissionalAgenda">
+      <End Role="Profissional" EntitySet="Profissional" />
+      <End Role="Agenda" EntitySet="Agenda" />
+    </AssociationSet>
+    <AssociationSet Name="ClienteAgenda" Association="DBSalaoModel.Store.ClienteAgenda">
+      <End Role="Cliente" EntitySet="Cliente" />
+      <End Role="Agenda" EntitySet="Agenda" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Agenda">
+    <Key>
+      <PropertyRef Name="IdAgenda" />
+    </Key>
+    <Property Name="IdAgenda" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Data" Type="datetime" Nullable="false" />
+    <Property Name="HoraInicio" Type="time" Nullable="false" Precision="7" />
+    <Property Name="HoraFim" Type="time" Nullable="false" Precision="7" />
+    <Property Name="Complemento" Type="nvarchar" Nullable="true" MaxLength="200" />
+    <Property Name="Situacao" Type="nvarchar" Nullable="false" MaxLength="1" />
+    <Property Name="Profissional_IdProfissional" Type="int" Nullable="false" />
+    <Property Name="Cliente_IdCliente" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Cliente">
+    <Key>
+      <PropertyRef Name="IdCliente" />
+    </Key>
+    <Property Name="IdCliente" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nome" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Telefone" Type="nvarchar" Nullable="true" MaxLength="15" />
+    <Property Name="Celular" Type="nvarchar" Nullable="false" MaxLength="15" />
+    <Property Name="Endereco" Type="nvarchar" Nullable="true" MaxLength="30" />
+    <Property Name="Numero" Type="nvarchar" Nullable="true" MaxLength="10" />
+    <Property Name="CPF" Type="nvarchar" Nullable="true" MaxLength="11" />
+    <Property Name="Nascimento" Type="datetime" Nullable="true" />
+    <Property Name="Email" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="IdUF" Type="int" Nullable="true" />
+    <Property Name="Bairro" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="Cidade" Type="nvarchar" Nullable="true" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="UF">
+    <Key>
+      <PropertyRef Name="IdUF" />
+    </Key>
+    <Property Name="IdUF" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UFSigla" Type="nvarchar" Nullable="false" MaxLength="2" />
+    <Property Name="Descricao" Type="nvarchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Profissional">
+    <Key>
+      <PropertyRef Name="IdProfissional" />
+    </Key>
+    <Property Name="IdProfissional" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nome" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Telefone" Type="nvarchar" Nullable="true" MaxLength="15" />
+    <Property Name="Celular" Type="nvarchar" Nullable="false" MaxLength="15" />
+    <Property Name="Endereco" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Bairro" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="Cidade" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Numero" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Nascimento" Type="datetime" Nullable="true" />
+    <Property Name="Email" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="ParticipaAgenda" Type="nvarchar" Nullable="false" MaxLength="1" />
+  </EntityType>
+  <Association Name="FK_UFCliente">
+    <End Role="UF" Type="DBSalaoModel.Store.UF" Multiplicity="0..1" />
+    <End Role="Cliente" Type="DBSalaoModel.Store.Cliente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UF">
+        <PropertyRef Name="IdUF" />
+      </Principal>
+      <Dependent Role="Cliente">
+        <PropertyRef Name="IdUF" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ProfissionalAgenda">
+    <End Role="Profissional" Type="DBSalaoModel.Store.Profissional" Multiplicity="1" />
+    <End Role="Agenda" Type="DBSalaoModel.Store.Agenda" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Profissional">
+        <PropertyRef Name="IdProfissional" />
+      </Principal>
+      <Dependent Role="Agenda">
+        <PropertyRef Name="Profissional_IdProfissional" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ClienteAgenda">
+    <End Role="Cliente" Type="DBSalaoModel.Store.Cliente" Multiplicity="1" />
+    <End Role="Agenda" Type="DBSalaoModel.Store.Agenda" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cliente">
+        <PropertyRef Name="IdCliente" />
+      </Principal>
+      <Dependent Role="Agenda">
+        <PropertyRef Name="Cliente_IdCliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

@@ -1,0 +1,10 @@
+D:\Desenvolvimento\SGSalao\bin\Debug\SGLogin.exe.config
+D:\Desenvolvimento\SGSalao\bin\Debug\SGLogin.exe
+D:\Desenvolvimento\SGSalao\bin\Debug\SGLogin.pdb
+D:\Desenvolvimento\SGSalao\UI\SGLogin\obj\Debug\SGLogin.csprojResolveAssemblyReference.cache
+D:\Desenvolvimento\SGSalao\UI\SGLogin\obj\Debug\SGLogin.frmLogin.resources
+D:\Desenvolvimento\SGSalao\UI\SGLogin\obj\Debug\SGLogin.Properties.Resources.resources
+D:\Desenvolvimento\SGSalao\UI\SGLogin\obj\Debug\SGLogin.csproj.GenerateResource.Cache
+D:\Desenvolvimento\SGSalao\UI\SGLogin\obj\Debug\SGLogin.exe
+D:\Desenvolvimento\SGSalao\UI\SGLogin\obj\Debug\SGLogin.pdb
+D:\Desenvolvimento\SGSalao\UI\SGLogin\obj\Debug\SGLogin.exe.licenses

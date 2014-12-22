@@ -1,0 +1,157 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BDSalao.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Agenda">
+    <Key>
+      <PropertyRef Name="IdAgenda" />
+    </Key>
+    <Property Name="IdAgenda" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Data" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="HoraInicio" Type="time" Precision="7" Nullable="false" />
+    <Property Name="HoraFim" Type="time" Precision="7" Nullable="false" />
+    <Property Name="Cliente_IdCliente" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Bairro">
+    <Key>
+      <PropertyRef Name="IdBairro" />
+    </Key>
+    <Property Name="IdBairro" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nome" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Cidade_IdCidade" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Cidade">
+    <Key>
+      <PropertyRef Name="IdCidade" />
+    </Key>
+    <Property Name="IdCidade" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nome" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="UF_IdUF" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Cliente">
+    <Key>
+      <PropertyRef Name="IdCliente" />
+    </Key>
+    <Property Name="IdCliente" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nome" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Telefone" Type="nvarchar" MaxLength="15" Nullable="false" />
+    <Property Name="Celular" Type="nvarchar" MaxLength="15" Nullable="false" />
+    <Property Name="Endereco" Type="nvarchar" MaxLength="30" />
+    <Property Name="Numero" Type="nvarchar" MaxLength="10" />
+    <Property Name="CPF" Type="nvarchar" MaxLength="11" />
+    <Property Name="Nascimento" Type="datetime" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="UF_IdUF" Type="int" />
+    <Property Name="Cidade_IdCidade" Type="int" />
+    <Property Name="Bairro_IdBairro" Type="int" />
+  </EntityType>
+  <EntityType Name="UF">
+    <Key>
+      <PropertyRef Name="IdUF" />
+    </Key>
+    <Property Name="IdUF" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UFSigla" Type="nvarchar" MaxLength="2" Nullable="false" />
+    <Property Name="Descricao" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_BairroCliente">
+    <End Role="Bairro" Type="Self.Bairro" Multiplicity="0..1" />
+    <End Role="Cliente" Type="Self.Cliente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Bairro">
+        <PropertyRef Name="IdBairro" />
+      </Principal>
+      <Dependent Role="Cliente">
+        <PropertyRef Name="Bairro_IdBairro" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CidadeBairro">
+    <End Role="Cidade" Type="Self.Cidade" Multiplicity="1" />
+    <End Role="Bairro" Type="Self.Bairro" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cidade">
+        <PropertyRef Name="IdCidade" />
+      </Principal>
+      <Dependent Role="Bairro">
+        <PropertyRef Name="Cidade_IdCidade" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CidadeCliente">
+    <End Role="Cidade" Type="Self.Cidade" Multiplicity="0..1" />
+    <End Role="Cliente" Type="Self.Cliente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cidade">
+        <PropertyRef Name="IdCidade" />
+      </Principal>
+      <Dependent Role="Cliente">
+        <PropertyRef Name="Cidade_IdCidade" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ClienteAgenda">
+    <End Role="Cliente" Type="Self.Cliente" Multiplicity="1" />
+    <End Role="Agenda" Type="Self.Agenda" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cliente">
+        <PropertyRef Name="IdCliente" />
+      </Principal>
+      <Dependent Role="Agenda">
+        <PropertyRef Name="Cliente_IdCliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UFCidade">
+    <End Role="UF" Type="Self.UF" Multiplicity="1" />
+    <End Role="Cidade" Type="Self.Cidade" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UF">
+        <PropertyRef Name="IdUF" />
+      </Principal>
+      <Dependent Role="Cidade">
+        <PropertyRef Name="UF_IdUF" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UFCliente">
+    <End Role="UF" Type="Self.UF" Multiplicity="0..1" />
+    <End Role="Cliente" Type="Self.Cliente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UF">
+        <PropertyRef Name="IdUF" />
+      </Principal>
+      <Dependent Role="Cliente">
+        <PropertyRef Name="UF_IdUF" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="BDSalaoStoreContainer">
+    <EntitySet Name="Agenda" EntityType="Self.Agenda" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Bairro" EntityType="Self.Bairro" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Cidade" EntityType="Self.Cidade" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Cliente" EntityType="Self.Cliente" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UF" EntityType="Self.UF" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_BairroCliente" Association="Self.FK_BairroCliente">
+      <End Role="Bairro" EntitySet="Bairro" />
+      <End Role="Cliente" EntitySet="Cliente" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CidadeBairro" Association="Self.FK_CidadeBairro">
+      <End Role="Cidade" EntitySet="Cidade" />
+      <End Role="Bairro" EntitySet="Bairro" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CidadeCliente" Association="Self.FK_CidadeCliente">
+      <End Role="Cidade" EntitySet="Cidade" />
+      <End Role="Cliente" EntitySet="Cliente" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ClienteAgenda" Association="Self.FK_ClienteAgenda">
+      <End Role="Cliente" EntitySet="Cliente" />
+      <End Role="Agenda" EntitySet="Agenda" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UFCidade" Association="Self.FK_UFCidade">
+      <End Role="UF" EntitySet="UF" />
+      <End Role="Cidade" EntitySet="Cidade" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UFCliente" Association="Self.FK_UFCliente">
+      <End Role="UF" EntitySet="UF" />
+      <End Role="Cliente" EntitySet="Cliente" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

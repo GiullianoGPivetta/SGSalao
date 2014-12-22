@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BDSalaoStoreContainer" CdmEntityContainer="BDSalaoContainer">
+    <EntitySetMapping Name="Cliente">
+      <EntityTypeMapping TypeName="IsTypeOf(BDSalao.Cliente)">
+        <MappingFragment StoreEntitySet="Cliente">
+          <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="Telefone" ColumnName="Telefone" />
+          <ScalarProperty Name="Celular" ColumnName="Celular" />
+          <ScalarProperty Name="Endereco" ColumnName="Endereco" />
+          <ScalarProperty Name="Numero" ColumnName="Numero" />
+          <ScalarProperty Name="CPF" ColumnName="CPF" />
+          <ScalarProperty Name="Nascimento" ColumnName="Nascimento" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cidade">
+      <EntityTypeMapping TypeName="IsTypeOf(BDSalao.Cidade)">
+        <MappingFragment StoreEntitySet="Cidade">
+          <ScalarProperty Name="IdCidade" ColumnName="IdCidade" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Bairro">
+      <EntityTypeMapping TypeName="IsTypeOf(BDSalao.Bairro)">
+        <MappingFragment StoreEntitySet="Bairro">
+          <ScalarProperty Name="IdBairro" ColumnName="IdBairro" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UF">
+      <EntityTypeMapping TypeName="IsTypeOf(BDSalao.UF)">
+        <MappingFragment StoreEntitySet="UF">
+          <ScalarProperty Name="IdUF" ColumnName="IdUF" />
+          <ScalarProperty Name="UFSigla" ColumnName="UFSigla" />
+          <ScalarProperty Name="Descricao" ColumnName="Descricao" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Agenda">
+      <EntityTypeMapping TypeName="IsTypeOf(BDSalao.Agenda)">
+        <MappingFragment StoreEntitySet="Agenda">
+          <ScalarProperty Name="IdAgenda" ColumnName="IdAgenda" />
+          <ScalarProperty Name="Data" ColumnName="Data" />
+          <ScalarProperty Name="HoraInicio" ColumnName="HoraInicio" />
+          <ScalarProperty Name="HoraFim" ColumnName="HoraFim" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="UFCidade" TypeName="BDSalao.UFCidade" StoreEntitySet="Cidade">
+      <EndProperty Name="UF">
+        <ScalarProperty Name="IdUF" ColumnName="UF_IdUF" />
+      </EndProperty>
+      <EndProperty Name="Cidade">
+        <ScalarProperty Name="IdCidade" ColumnName="IdCidade" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="CidadeBairro" TypeName="BDSalao.CidadeBairro" StoreEntitySet="Bairro">
+      <EndProperty Name="Cidade">
+        <ScalarProperty Name="IdCidade" ColumnName="Cidade_IdCidade" />
+      </EndProperty>
+      <EndProperty Name="Bairro">
+        <ScalarProperty Name="IdBairro" ColumnName="IdBairro" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="UFCliente" TypeName="BDSalao.UFCliente" StoreEntitySet="Cliente">
+      <EndProperty Name="UF">
+        <ScalarProperty Name="IdUF" ColumnName="UF_IdUF" />
+      </EndProperty>
+      <EndProperty Name="Cliente">
+        <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
+      </EndProperty>
+      <Condition ColumnName="UF_IdUF" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="CidadeCliente" TypeName="BDSalao.CidadeCliente" StoreEntitySet="Cliente">
+      <EndProperty Name="Cidade">
+        <ScalarProperty Name="IdCidade" ColumnName="Cidade_IdCidade" />
+      </EndProperty>
+      <EndProperty Name="Cliente">
+        <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
+      </EndProperty>
+      <Condition ColumnName="Cidade_IdCidade" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="BairroCliente" TypeName="BDSalao.BairroCliente" StoreEntitySet="Cliente">
+      <EndProperty Name="Bairro">
+        <ScalarProperty Name="IdBairro" ColumnName="Bairro_IdBairro" />
+      </EndProperty>
+      <EndProperty Name="Cliente">
+        <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
+      </EndProperty>
+      <Condition ColumnName="Bairro_IdBairro" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ClienteAgenda" TypeName="BDSalao.ClienteAgenda" StoreEntitySet="Agenda">
+      <EndProperty Name="Cliente">
+        <ScalarProperty Name="IdCliente" ColumnName="Cliente_IdCliente" />
+      </EndProperty>
+      <EndProperty Name="Agenda">
+        <ScalarProperty Name="IdAgenda" ColumnName="IdAgenda" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

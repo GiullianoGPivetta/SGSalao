@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f91bbddfb06b4d319cb217112b0c4067" Name="Diagram1" ZoomLevel="106">
+        <EntityTypeShape EntityType="DBSalaoModel.Agenda" Width="1.5" PointX="8.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBSalaoModel.Cliente" Width="1.5" PointX="6.375" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBSalaoModel.UF" Width="1.5" PointX="4" PointY="2.375" IsExpanded="true" />
+        <AssociationConnector Association="DBSalaoModel.FK_UFCliente" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="DBSalaoModel.Profissional" Width="1.5" PointX="11.875" PointY="1.375" />
+        <AssociationConnector Association="DBSalaoModel.ProfissionalAgenda" />
+        <AssociationConnector Association="DBSalaoModel.ClienteAgenda" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
