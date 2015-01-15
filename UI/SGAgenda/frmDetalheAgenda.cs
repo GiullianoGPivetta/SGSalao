@@ -62,7 +62,7 @@ namespace SGAgenda
                 Cliente = _cliente,
                 Situacao = SituacaoAgenda.Aberta,
                 HoraInicial = _data,
-                HoraFinal = ,
+                //HoraFinal = ,
                 Data = _data.Date,
                 Complemento = txtComentario.Text,
                 Profissional = (Profissional)cboProfissional.GetSelectedDataRow()
