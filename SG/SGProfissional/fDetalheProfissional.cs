@@ -88,7 +88,7 @@ namespace SGProfissional
             if (string.IsNullOrWhiteSpace(txtCelular.Text))
                 dxError.SetError(txtCelular, "O Celular do Profissional deve ser informado.");
 
-            if (string.IsNullOrWhiteSpace(cboAgenda.))
+            if (string.IsNullOrWhiteSpace(cboAgenda.Text))
                 dxError.SetError(cboAgenda, "Deve ser informado se o Profissional participa da agenda.");
 
             if (string.IsNullOrWhiteSpace(txtNumero.Text))

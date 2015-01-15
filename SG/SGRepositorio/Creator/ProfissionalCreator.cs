@@ -1,6 +1,4 @@
 using System;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Data.Entity.ModelConfiguration;
 using System.Data.SqlClient;
 using SGCore.Utils;
 using SGEntidades.Entidades;
@@ -10,9 +8,9 @@ namespace SGRepositorio.Creator
 {
     public class ProfissionalCreator : BaseCreator
     {
-        private SqlDataReader _dt;
-        private string _nome;
-        private object[] _objects;
+        private readonly SqlDataReader _dt;
+        private readonly string _nome;
+        private readonly object[] _objects;
 
         public ProfissionalCreator(SqlDataReader dataReader, string alias, params object[] include)
             : base(dataReader, alias, include)
@@ -29,7 +27,7 @@ namespace SGRepositorio.Creator
 
             var profissional = new Profissional
             {
-                IdProfissional = _dt.FieldExist(string.Concat(_nome, "IdCliente")) ? _dt[string.Concat(_nome, "IdCliente")].DefaultDbNull<int?>(null) : null,
+                IdProfissional = _dt.FieldExist(string.Concat(_nome, "IdProfissional")) ? _dt[string.Concat(_nome, "IdProfissional")].DefaultDbNull<int>(0) : 0,
                 Endereco = _dt.FieldExist(string.Concat(_nome, "Endereco")) ? _dt[string.Concat(_nome, "Endereco")].DefaultDbNull<string>(null) : string.Empty,
                 Bairro = _dt.FieldExist(string.Concat(_nome, "Bairro")) ? _dt[string.Concat(_nome, "Bairro")].DefaultDbNull<string>(null) : string.Empty,
                 Celular = _dt.FieldExist(string.Concat(_nome, "Celular")) ? _dt[string.Concat(_nome, "Celular")].DefaultDbNull<string>(null) : string.Empty,

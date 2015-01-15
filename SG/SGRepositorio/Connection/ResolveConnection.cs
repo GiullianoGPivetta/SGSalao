@@ -10,10 +10,10 @@ namespace SGRepositorio.Connection
 
         public static string Connection()
         {
-            var registryKey = Registry.LocalMachine.OpenSubKey(@"MNSalao");
-            return registryKey.GetValue("ConnectionString").ToString();
+            //var registryKey = Registry.LocalMachine.OpenSubKey(@"MNSalao");
+            //return registryKey.GetValue("ConnectionString").ToString();
 
-            //return "Server = NOTE-GIU; Database = DBSalao; User Id = sa; Password = 190990";
+            return "Server = NOTE-GIU; Database = DBSalao; User Id = sa; Password = 190990";
         }
 
 

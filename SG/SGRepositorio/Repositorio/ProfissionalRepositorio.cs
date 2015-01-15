@@ -32,6 +32,7 @@ namespace SGRepositorio.Repositorio
                 command.Parameters.AddWithValue("@Email", profissional.Email);
                 command.Parameters.AddWithValue("@Cidade", profissional.Cidade);
                 command.Parameters.AddWithValue("@Celular", profissional.Celular);
+                command.Parameters.AddWithValue("@ParticipaAgenda", EnumUtils<SimNao>.GetValue<string>(profissional.ParticipaAgenda));
 
                 command.Parameters.ConvertToDbNull();
                 command.ExecuteNonQuery();
@@ -154,7 +155,7 @@ namespace SGRepositorio.Repositorio
                 {
                     while (reader.Read())
                     {
-                        lista= new ProfissionalCreator(reader, "", null).Create();
+                        lista = new ProfissionalCreator(reader, "", null).Create();
                     }
                 }
 

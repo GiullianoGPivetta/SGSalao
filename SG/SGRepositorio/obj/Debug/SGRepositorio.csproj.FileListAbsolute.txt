@@ -5,9 +5,6 @@ D:\Desenvolvimento\SGSalao\SG\SGRepositorio\bin\Debug\EntityFramework.dll
 D:\Desenvolvimento\SGSalao\SG\SGRepositorio\bin\Debug\EntityFramework.SqlServer.dll
 D:\Desenvolvimento\SGSalao\SG\SGRepositorio\bin\Debug\EntityFramework.xml
 D:\Desenvolvimento\SGSalao\SG\SGRepositorio\bin\Debug\EntityFramework.SqlServer.xml
-D:\Desenvolvimento\SGSalao\SG\SGRepositorio\obj\Debug\SGRepositorio.csprojResolveAssemblyReference.cache
-D:\Desenvolvimento\SGSalao\SG\SGRepositorio\obj\Debug\SGRepositorio.dll
-D:\Desenvolvimento\SGSalao\SG\SGRepositorio\obj\Debug\SGRepositorio.pdb
 D:\Desenvolvimento\SGSalao\SG\SGRepositorio\bin\Debug\SGEntidades.dll
 D:\Desenvolvimento\SGSalao\SG\SGRepositorio\bin\Debug\System.Data.Entity.Repository.dll
 D:\Desenvolvimento\SGSalao\SG\SGRepositorio\bin\Debug\SGEntidades.pdb
@@ -19,9 +16,13 @@ D:\Desenvolvimento\SGSalao\SG\bin\Debug\SGRepositorio.pdb
 D:\Desenvolvimento\SGSalao\bin\Debug\SGRepositorio.dll.config
 D:\Desenvolvimento\SGSalao\bin\Debug\SGRepositorio.dll
 D:\Desenvolvimento\SGSalao\bin\Debug\SGRepositorio.pdb
+D:\Desenvolvimento\SGSalao\SG\SGRepositorio\obj\Debug\SGRepositorio.csprojResolveAssemblyReference.cache
 D:\Desenvolvimento\SGSalao\SG\SGRepositorio\obj\Debug\SGRepositorio.Resource.Agenda.resources
 D:\Desenvolvimento\SGSalao\SG\SGRepositorio\obj\Debug\SGRepositorio.Resource.Cliente.resources
 D:\Desenvolvimento\SGSalao\SG\SGRepositorio\obj\Debug\SGRepositorio.Resource.Profissional.resources
 D:\Desenvolvimento\SGSalao\SG\SGRepositorio\obj\Debug\SGRepositorio.Resource.UF.resources
 D:\Desenvolvimento\SGSalao\SG\SGRepositorio\obj\Debug\SGRepositorio.Resource.Usuario.resources
 D:\Desenvolvimento\SGSalao\SG\SGRepositorio\obj\Debug\SGRepositorio.csproj.GenerateResource.Cache
+D:\Desenvolvimento\SGSalao\SG\SGRepositorio\obj\Debug\SGRepositorio.dll
+D:\Desenvolvimento\SGSalao\SG\SGRepositorio\obj\Debug\SGRepositorio.pdb
+D:\Desenvolvimento\SGSalao\SG\SGRepositorio\obj\Debug\SGRepositorio.Resource.Servico.resources

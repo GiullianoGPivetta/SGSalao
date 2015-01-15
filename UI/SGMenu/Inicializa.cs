@@ -8,26 +8,26 @@ namespace SGMenu
     {
         public void IniciarSistema()
         {
-            var registryKey = Registry.LocalMachine.OpenSubKey(@"MNSalao");
+            //var registryKey = Registry.LocalMachine.OpenSubKey(@"MNSalao");
 
-            var connection = string.Empty;
+            //var connection = string.Empty;
 
-            if (registryKey == null)
-            {
-                MessageBox.Show(Resources.ErroRegistro, Resources.Sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
+            //if (registryKey == null)
+            //{
+            //    MessageBox.Show(Resources.ErroRegistro, Resources.Sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    return;
+            //}
 
-            connection = registryKey.GetValue("ConnectionString").ToString();
+            //connection = registryKey.GetValue("ConnectionString").ToString();
             
-            if(string.IsNullOrWhiteSpace(connection))
-            {
-                MessageBox.Show(Resources.ConnectionString, Resources.Sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
+            //if(string.IsNullOrWhiteSpace(connection))
+            //{
+            //    MessageBox.Show(Resources.ConnectionString, Resources.Sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    return;
+            //}
             
-            var usr = new frmLogin();
-            if (usr.ShowDialog() != DialogResult.OK) return;
+            //var usr = new frmLogin();
+            //if (usr.ShowDialog() != DialogResult.OK) return;
 
             var menu = new fMenu();
             menu.ShowDialog();

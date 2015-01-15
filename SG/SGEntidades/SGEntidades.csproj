@@ -39,9 +39,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DTO\ServicoSelecionado.cs" />
     <Compile Include="Entidades\Agenda.cs" />
     <Compile Include="Entidades\Cliente.cs" />
     <Compile Include="Entidades\Profissional.cs" />
+    <Compile Include="Entidades\Servico.cs" />
     <Compile Include="Entidades\Usuario.cs" />
     <Compile Include="Enum\SimNao.cs" />
     <Compile Include="Enum\SituacaoAgenda.cs" />

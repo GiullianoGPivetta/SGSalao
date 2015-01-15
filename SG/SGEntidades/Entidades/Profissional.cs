@@ -7,7 +7,7 @@ namespace SGEntidades.Entidades
 {
     public class Profissional
     {
-        public int? IdProfissional { get; set; }
+        public int IdProfissional { get; set; }
         public string Nome { get; set; }
         public string Telefone { get; set; }
         public string Celular { get; set; }
@@ -19,5 +19,9 @@ namespace SGEntidades.Entidades
         public string Email { get; set; }
         public SimNao ParticipaAgenda { get; set; }
         public Status Status { get; set; }
+
+        public List<Agenda> Agendas { get; set; }
+        public List<Servico> Servicos { get; set; }
+
     }
 }

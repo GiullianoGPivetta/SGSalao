@@ -54,12 +54,13 @@
     <Compile Include="Creator\BaseCreator.cs" />
     <Compile Include="Creator\ClienteCreator.cs" />
     <Compile Include="Creator\ProfissionalCreator.cs" />
-    <Compile Include="Creator\UFCreator.cs" />
+    <Compile Include="Creator\ServicoCreator.cs" />
     <Compile Include="Creator\UsuarioCreator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositorio\AgendaRepositorio.cs" />
     <Compile Include="Repositorio\ClienteRepositorio.cs" />
     <Compile Include="Repositorio\ProfissionalRepositorio.cs" />
+    <Compile Include="Repositorio\ServicoRepositorio.cs" />
     <Compile Include="Resource\Agenda.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -74,6 +75,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Profissional.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resource\Servico.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Servico.resx</DependentUpon>
     </Compile>
     <Compile Include="Resource\UF.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -116,6 +122,10 @@
     <EmbeddedResource Include="Resource\Profissional.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Profissional.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resource\Servico.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Servico.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Resource\UF.resx">
       <Generator>ResXFileCodeGenerator</Generator>

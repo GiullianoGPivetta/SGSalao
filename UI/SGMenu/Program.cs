@@ -17,7 +17,7 @@ namespace SGLogin
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            
+
             new Inicializa().IniciarSistema();
         }
     }

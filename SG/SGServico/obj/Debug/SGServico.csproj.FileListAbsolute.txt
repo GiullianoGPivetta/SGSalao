@@ -4,9 +4,6 @@ D:\Desenvolvimento\SGSalao\SG\SGServico\bin\Debug\SGRepositorio.dll
 D:\Desenvolvimento\SGSalao\SG\SGServico\bin\Debug\EntityFramework.dll
 D:\Desenvolvimento\SGSalao\SG\SGServico\bin\Debug\SGRepositorio.pdb
 D:\Desenvolvimento\SGSalao\SG\SGServico\bin\Debug\EntityFramework.xml
-D:\Desenvolvimento\SGSalao\SG\SGServico\obj\Debug\SGServico.csprojResolveAssemblyReference.cache
-D:\Desenvolvimento\SGSalao\SG\SGServico\obj\Debug\SGServico.dll
-D:\Desenvolvimento\SGSalao\SG\SGServico\obj\Debug\SGServico.pdb
 D:\Desenvolvimento\SGSalao\SG\SGServico\bin\Debug\SGServico.dll.config
 D:\Desenvolvimento\SGSalao\SG\SGServico\bin\Debug\SGEntidades.dll
 D:\Desenvolvimento\SGSalao\SG\SGServico\bin\Debug\SGEntidades.pdb
@@ -18,3 +15,6 @@ D:\Desenvolvimento\SGSalao\SG\bin\Debug\SGServico.pdb
 D:\Desenvolvimento\SGSalao\bin\Debug\SGServico.dll.config
 D:\Desenvolvimento\SGSalao\bin\Debug\SGServico.dll
 D:\Desenvolvimento\SGSalao\bin\Debug\SGServico.pdb
+D:\Desenvolvimento\SGSalao\SG\SGServico\obj\Debug\SGServico.csprojResolveAssemblyReference.cache
+D:\Desenvolvimento\SGSalao\SG\SGServico\obj\Debug\SGServico.dll
+D:\Desenvolvimento\SGSalao\SG\SGServico\obj\Debug\SGServico.pdb

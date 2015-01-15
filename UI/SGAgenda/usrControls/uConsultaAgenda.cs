@@ -23,31 +23,18 @@ namespace SGAgenda.usrControls
         public uConsultaAgenda()
         {
             InitializeComponent();
-
-
-
-            RecuperarProfissionaisAgenda();
-            MontaHorarios();
-            schedulerAgenda.OptionsCustomization.AllowInplaceEditor = UsedAppointmentType.Custom;
-
         }
 
         private void MontaHorarios()
         {
-            var agendas = _agendaServico.RecuperarLista(DateTime.Now.Date);
-            schedulerAgendaStorage.Appointments.DataSource = agendas;
+            var agendas = _agendaServico.RecuperarLista(dateNavigator1.DateTime);
+            schedulerStorage.Appointments.DataSource = agendas;
         }
 
         private void RecuperarProfissionaisAgenda()
         {
             _recursos = _profissionalService.RecuperarParticipaAgenda();
-            schedulerAgendaStorage.Resources.DataSource = _recursos;
-            schedulerAgenda.GroupType = SchedulerGroupType.Resource;
-        }
-
-        private void schedulerAgenda_Click(object sender, EventArgs e)
-        {
-
+            schedulerStorage.Resources.DataSource = _recursos;
         }
 
         private void btDia_Click(object sender, EventArgs e)
@@ -73,7 +60,6 @@ namespace SGAgenda.usrControls
                 return;
             }
 
-
             var prof = (int)schedulerAgenda.SelectedResource.Id;
             var time = schedulerAgenda.SelectedInterval.Start;
 
@@ -82,6 +68,17 @@ namespace SGAgenda.usrControls
                 MontaHorarios();
 
             e.Handled = true;
+        }
+
+        private void uConsultaAgenda_Load(object sender, EventArgs e)
+        {
+            dateNavigator1.DateTime = DateTime.Now;
+
+            RecuperarProfissionaisAgenda();
+            MontaHorarios();
+            
+            schedulerAgenda.OptionsCustomization.AllowInplaceEditor = UsedAppointmentType.Custom;
+            dateNavigator1.Refresh();
         }
     }
 }

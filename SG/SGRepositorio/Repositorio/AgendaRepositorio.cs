@@ -26,10 +26,10 @@ namespace SGRepositorio.Repositorio
 
                 command.Parameters.AddWithValue("@IdCliente", agenda.Cliente.IdCliente);
                 command.Parameters.AddWithValue("@IdProfissional", agenda.Profissional.IdProfissional);
-                command.Parameters.AddWithValue("@Data", agenda.Data);
+                command.Parameters.AddWithValue("@Data", agenda.Data.Date);
                 command.Parameters.AddWithValue("@Situacao", EnumUtils<SituacaoAgenda>.GetValue<string>(agenda.Situacao));
-                command.Parameters.AddWithValue("@HoraInicio", agenda.HoraInicio);
-                command.Parameters.AddWithValue("@HoraFim", agenda.HoraFim);
+                command.Parameters.AddWithValue("@HoraInicial", agenda.HoraInicial);
+                command.Parameters.AddWithValue("@HoraFinal", agenda.HoraFinal);
                 command.Parameters.AddWithValue("@Complemento", agenda.Complemento);
 
                 command.ExecuteNonQuery();
@@ -57,8 +57,8 @@ namespace SGRepositorio.Repositorio
                 command.Parameters.AddWithValue("@IdProfissional", agenda.Profissional.IdProfissional);
                 command.Parameters.AddWithValue("@Data", agenda.Data);
                 command.Parameters.AddWithValue("@Situacao", EnumUtils<SituacaoAgenda>.GetValue<string>(agenda.Situacao));
-                command.Parameters.AddWithValue("@HoraInicio", agenda.HoraInicio);
-                command.Parameters.AddWithValue("@HoraFim", agenda.HoraFim);
+                command.Parameters.AddWithValue("@HoraInicial", agenda.HoraInicial);
+                command.Parameters.AddWithValue("@HoraFinal", agenda.HoraFinal);
                 command.Parameters.AddWithValue("@Complemento", agenda.Complemento);
                 command.Parameters.ConvertToDbNull();
                 command.ExecuteNonQuery();
@@ -81,14 +81,17 @@ namespace SGRepositorio.Repositorio
                 _connection.Conexao.Open();
                 var sql = Resource.Agenda.RecuperarLista;
                 var command = new SqlCommand(sql, _connection.Conexao);
-                command.Parameters.AddWithValue("@Data", data);
+                command.Parameters.AddWithValue("@Data", data.Date);
                 var reader = command.ExecuteReader();
+
 
                 while (reader.Read())
                 {
-                    list.Add(new AgendaCreator(reader, "A",
+                    var agenda = new AgendaCreator(reader, "A",
                                       new ClienteCreator(reader, "C", null),
-                                      new ProfissionalCreator(reader, "P", null)).Create());
+                                      new ProfissionalCreator(reader, "P", null)).Create();
+
+                    agenda.Servicos = new ServicoRepositorio().RecuperarListaAgenda(agenda);
                 }
 
                 return list;

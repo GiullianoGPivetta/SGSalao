@@ -5,7 +5,7 @@ namespace SGEntidades.Enum
     public enum SituacaoAgenda
     {
         [EnumDescription("Aberta")]
-        [EnumValue("a")]
+        [EnumValue("A")]
         Aberta,
         [EnumDescription("Cancelada")]
         [EnumValue("C")]

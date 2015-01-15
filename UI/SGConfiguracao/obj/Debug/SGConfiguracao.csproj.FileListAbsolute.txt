@@ -1,12 +1,7 @@
 D:\Desenvolvimento\SGSalao\UI\SGConfiguracao\bin\Debug\SGConfiguracao.dll
 D:\Desenvolvimento\SGSalao\UI\SGConfiguracao\bin\Debug\SGConfiguracao.pdb
-D:\Desenvolvimento\SGSalao\UI\SGConfiguracao\obj\Debug\SGConfiguracao.dll
-D:\Desenvolvimento\SGSalao\UI\SGConfiguracao\obj\Debug\SGConfiguracao.pdb
 D:\Desenvolvimento\SGSalao\UI\SGConfiguracao\bin\Debug\SGProfissional.dll
 D:\Desenvolvimento\SGSalao\UI\SGConfiguracao\bin\Debug\SGProfissional.pdb
-D:\Desenvolvimento\SGSalao\UI\SGConfiguracao\obj\Debug\SGConfiguracao.csprojResolveAssemblyReference.cache
-D:\Desenvolvimento\SGSalao\UI\SGConfiguracao\obj\Debug\SGConfiguracao.usrGerenciamento.resources
-D:\Desenvolvimento\SGSalao\UI\SGConfiguracao\obj\Debug\SGConfiguracao.csproj.GenerateResource.Cache
 D:\Desenvolvimento\SGSalao\UI\SGConfiguracao\bin\Debug\SGRepositorio.dll
 D:\Desenvolvimento\SGSalao\UI\SGConfiguracao\bin\Debug\EntityFramework.dll
 D:\Desenvolvimento\SGSalao\UI\SGConfiguracao\bin\Debug\SGEntidades.dll
@@ -19,3 +14,8 @@ D:\Desenvolvimento\SGSalao\SG\bin\Debug\SGConfiguracao.dll
 D:\Desenvolvimento\SGSalao\SG\bin\Debug\SGConfiguracao.pdb
 D:\Desenvolvimento\SGSalao\bin\Debug\SGConfiguracao.dll
 D:\Desenvolvimento\SGSalao\bin\Debug\SGConfiguracao.pdb
+D:\Desenvolvimento\SGSalao\UI\SGConfiguracao\obj\Debug\SGConfiguracao.csprojResolveAssemblyReference.cache
+D:\Desenvolvimento\SGSalao\UI\SGConfiguracao\obj\Debug\SGConfiguracao.usrGerenciamento.resources
+D:\Desenvolvimento\SGSalao\UI\SGConfiguracao\obj\Debug\SGConfiguracao.csproj.GenerateResource.Cache
+D:\Desenvolvimento\SGSalao\UI\SGConfiguracao\obj\Debug\SGConfiguracao.dll
+D:\Desenvolvimento\SGSalao\UI\SGConfiguracao\obj\Debug\SGConfiguracao.pdb

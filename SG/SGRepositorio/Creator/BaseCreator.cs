@@ -8,10 +8,7 @@ namespace SGRepositorio.Creator
         protected object[] objects;
         protected SqlDataReader dr;
 
-        public string Alias
-        {
-            get { return name; }
-        }
+        public string Alias => name;
 
         public BaseCreator(SqlDataReader dataReader, string alias = "", params object[] include)
         {

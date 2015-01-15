@@ -27,6 +27,8 @@ namespace SGAgenda
         private readonly Profissional _profissional;
         private Cliente _cliente;
 
+        private readonly DateTime _data;
+
         public frmDetalheAgenda()
         {
             InitializeComponent();
@@ -38,21 +40,30 @@ namespace SGAgenda
         public frmDetalheAgenda(int prof, DateTime time)
             : this()
         {
+            _data = time;
+
             cboProfissional.EditValue = prof;
-            dtInicio.Time = time;
-            dtFim.Time = time.AddMinutes(30);
+            lblDataHoraAgenda.Text = string.Format("{0:d} {1} -", time, time);
+
+            //dtInicio.Time = time;
+            //dtFim.Time = time.AddMinutes(30);
         }
 
 
         private void btnOk_Click(object sender, EventArgs e)
         {
+
+          
+
+            //var servicos = clbServicos.get
+
             var agenda = new Agenda
             {
                 Cliente = _cliente,
                 Situacao = SituacaoAgenda.Aberta,
-                HoraInicio = dtInicio.Time,
-                HoraFim = dtFim.Time,
-                Data = DateTime.Now,
+                HoraInicial = _data,
+                HoraFinal = ,
+                Data = _data.Date,
                 Complemento = txtComentario.Text,
                 Profissional = (Profissional)cboProfissional.GetSelectedDataRow()
             };
@@ -79,6 +90,11 @@ namespace SGAgenda
         {
             DialogResult = DialogResult.No;
             this.Close();
+        }
+
+        private void frmDetalheAgenda_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

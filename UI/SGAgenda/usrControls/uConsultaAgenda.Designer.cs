@@ -44,7 +44,8 @@
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.dateNavigator1 = new DevExpress.XtraScheduler.DateNavigator();
             this.schedulerAgenda = new DevExpress.XtraScheduler.SchedulerControl();
-            this.schedulerAgendaStorage = new DevExpress.XtraScheduler.SchedulerStorage(this.components);
+            this.schedulerStorage = new DevExpress.XtraScheduler.SchedulerStorage(this.components);
+            this.agendaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.profissionalBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dateEdit1 = new DevExpress.XtraEditors.DateEdit();
             this.btMes = new DevExpress.XtraEditors.SimpleButton();
@@ -63,12 +64,12 @@
             this.emptySpaceItem4 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.agendaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dateNavigator1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.schedulerAgenda)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.schedulerAgendaStorage)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.schedulerStorage)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.agendaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.profissionalBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties)).BeginInit();
@@ -85,12 +86,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.agendaBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
             // 
-            this.layoutControl1.AllowCustomizationMenu = false;
+            this.layoutControl1.AllowCustomization = false;
             this.layoutControl1.Controls.Add(this.dateNavigator1);
             this.layoutControl1.Controls.Add(this.dateEdit1);
             this.layoutControl1.Controls.Add(this.btMes);
@@ -111,6 +111,7 @@
             // 
             // dateNavigator1
             // 
+            this.dateNavigator1.HighlightTodayCell = DevExpress.Utils.DefaultBoolean.Default;
             this.dateNavigator1.HotDate = null;
             this.dateNavigator1.Location = new System.Drawing.Point(574, 3);
             this.dateNavigator1.Name = "dateNavigator1";
@@ -129,14 +130,18 @@
             this.schedulerAgenda.Appearance.ResourceHeaderCaptionLine.Options.UseBackColor = true;
             this.schedulerAgenda.Appearance.ResourceHeaderCaptionLine.Options.UseForeColor = true;
             this.schedulerAgenda.BackColor = System.Drawing.SystemColors.Control;
+            this.schedulerAgenda.GroupType = DevExpress.XtraScheduler.SchedulerGroupType.Resource;
             this.schedulerAgenda.LimitInterval.Duration = System.TimeSpan.Parse("2917921.23:59:59.9999999");
             this.schedulerAgenda.LimitInterval.Start = new System.DateTime(2011, 1, 1, 0, 0, 0, 0);
             this.schedulerAgenda.Location = new System.Drawing.Point(7, 40);
             this.schedulerAgenda.Name = "schedulerAgenda";
-            this.schedulerAgenda.OptionsBehavior.ClientTimeZoneId = "Hora Padrão Brasil Central";
+            this.schedulerAgenda.OptionsBehavior.ClientTimeZoneId = "E. South America Standard Time";
+            this.schedulerAgenda.OptionsBehavior.SelectOnRightClick = true;
             this.schedulerAgenda.OptionsCustomization.AllowInplaceEditor = DevExpress.XtraScheduler.UsedAppointmentType.None;
-            this.schedulerAgenda.OptionsRangeControl.MaxIntervalWidth = 30;
             this.schedulerAgenda.OptionsView.NavigationButtons.Visibility = DevExpress.XtraScheduler.NavigationButtonVisibility.Never;
+            this.schedulerAgenda.OptionsView.ResourceHeaders.Height = 25;
+            this.schedulerAgenda.OptionsView.ShowOnlyResourceAppointments = true;
+            this.schedulerAgenda.OptionsView.ToolTipVisibility = DevExpress.XtraScheduler.ToolTipVisibility.Always;
             schedulerColorSchema1.Cell = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(158)))), ((int)(((byte)(191)))));
             schedulerColorSchema1.CellBorder = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(147)))), ((int)(((byte)(181)))));
             schedulerColorSchema1.CellBorderDark = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(116)))), ((int)(((byte)(152)))));
@@ -200,46 +205,36 @@
             this.schedulerAgenda.ResourceColorSchemas.Add(schedulerColorSchema7);
             this.schedulerAgenda.ResourceColorSchemas.Add(schedulerColorSchema8);
             this.schedulerAgenda.ResourceColorSchemas.Add(schedulerColorSchema9);
+            this.schedulerAgenda.ResourceNavigator.Visibility = DevExpress.XtraScheduler.ResourceNavigatorVisibility.Always;
             this.schedulerAgenda.Size = new System.Drawing.Size(559, 423);
             this.schedulerAgenda.Start = new System.DateTime(2014, 10, 22, 0, 0, 0, 0);
-            this.schedulerAgenda.Storage = this.schedulerAgendaStorage;
-            this.schedulerAgenda.TabIndex = 4;
+            this.schedulerAgenda.Storage = this.schedulerStorage;
+            this.schedulerAgenda.TabIndex = 0;
             this.schedulerAgenda.Text = "schedulerControl1";
             this.schedulerAgenda.Views.DayView.ShowWorkTimeOnly = true;
             this.schedulerAgenda.Views.DayView.StatusLineWidth = 2;
             timeRuler1.ShowMinutes = true;
             this.schedulerAgenda.Views.DayView.TimeRulers.Add(timeRuler1);
-            this.schedulerAgenda.Views.DayView.VisibleTime.End = System.TimeSpan.Parse("22:00:00");
-            this.schedulerAgenda.Views.DayView.VisibleTime.Start = System.TimeSpan.Parse("07:00:00");
-            this.schedulerAgenda.Views.DayView.WorkTime.End = System.TimeSpan.Parse("23:00:00");
-            this.schedulerAgenda.Views.DayView.WorkTime.Start = System.TimeSpan.Parse("07:00:00");
-            this.schedulerAgenda.Views.GanttView.Enabled = false;
-            this.schedulerAgenda.Views.TimelineView.Enabled = false;
+            this.schedulerAgenda.Views.DayView.WorkTime = new DevExpress.XtraScheduler.WorkTimeInterval(System.TimeSpan.Parse("07:00:00"), System.TimeSpan.Parse("23:00:00"));
             this.schedulerAgenda.Views.WorkWeekView.Enabled = false;
             this.schedulerAgenda.Views.WorkWeekView.TimeRulers.Add(timeRuler2);
             this.schedulerAgenda.EditAppointmentFormShowing += new DevExpress.XtraScheduler.AppointmentFormEventHandler(this.schedulerAgenda_EditAppointmentFormShowing);
             // 
-            // schedulerAgendaStorage
+            // schedulerStorage
             // 
-            this.schedulerAgendaStorage.Appointments.CustomFieldMappings.Add(new DevExpress.XtraScheduler.AppointmentCustomFieldMapping("Profissional", "Profissional"));
-            this.schedulerAgendaStorage.Appointments.CustomFieldMappings.Add(new DevExpress.XtraScheduler.AppointmentCustomFieldMapping("Cliente", "Cliente"));
-            this.schedulerAgendaStorage.Appointments.CustomFieldMappings.Add(new DevExpress.XtraScheduler.AppointmentCustomFieldMapping("Complemento", "Complemento"));
-            this.schedulerAgendaStorage.Appointments.CustomFieldMappings.Add(new DevExpress.XtraScheduler.AppointmentCustomFieldMapping("Data", "Data"));
-            this.schedulerAgendaStorage.Appointments.CustomFieldMappings.Add(new DevExpress.XtraScheduler.AppointmentCustomFieldMapping("IdAgenda", "IdAgenda"));
-            this.schedulerAgendaStorage.Appointments.CustomFieldMappings.Add(new DevExpress.XtraScheduler.AppointmentCustomFieldMapping("IdCliente", "IdCliente"));
-            this.schedulerAgendaStorage.Appointments.CustomFieldMappings.Add(new DevExpress.XtraScheduler.AppointmentCustomFieldMapping("IdProfissional", "IdProfissional"));
-            this.schedulerAgendaStorage.Appointments.DataMember = "IdAgenda";
-            this.schedulerAgendaStorage.Appointments.DataSource = this.agendaBindingSource;
-            this.schedulerAgendaStorage.Appointments.Mappings.Description = "Complemento";
-            this.schedulerAgendaStorage.Appointments.Mappings.End = "HoraFim";
-            this.schedulerAgendaStorage.Appointments.Mappings.Label = "IdProfissional";
-            this.schedulerAgendaStorage.Appointments.Mappings.ResourceId = "Cliente";
-            this.schedulerAgendaStorage.Appointments.Mappings.Start = "HoraInicio";
-            this.schedulerAgendaStorage.Appointments.Mappings.Status = "IdCliente";
-            this.schedulerAgendaStorage.Appointments.Mappings.Type = "IdAgenda";
-            this.schedulerAgendaStorage.Resources.DataSource = this.profissionalBindingSource;
-            this.schedulerAgendaStorage.Resources.Mappings.Caption = "Nome";
-            this.schedulerAgendaStorage.Resources.Mappings.Id = "IdProfissional";
+            this.schedulerStorage.Appointments.DataSource = this.agendaBindingSource;
+            this.schedulerStorage.Appointments.Mappings.Description = "Complemento";
+            this.schedulerStorage.Appointments.Mappings.End = "HoraFinal";
+            this.schedulerStorage.Appointments.Mappings.ResourceId = "Profissional.IdProfissional";
+            this.schedulerStorage.Appointments.Mappings.Start = "HoraInicial";
+            this.schedulerStorage.Appointments.Mappings.Subject = "Cliente.Nome";
+            this.schedulerStorage.Resources.DataSource = this.profissionalBindingSource;
+            this.schedulerStorage.Resources.Mappings.Caption = "Nome";
+            this.schedulerStorage.Resources.Mappings.Id = "IdProfissional";
+            // 
+            // agendaBindingSource
+            // 
+            this.agendaBindingSource.DataSource = typeof(SGEntidades.Entidades.Agenda);
             // 
             // profissionalBindingSource
             // 
@@ -298,7 +293,6 @@
             this.memoEdit1.Size = new System.Drawing.Size(191, 287);
             this.memoEdit1.StyleController = this.layoutControl1;
             this.memoEdit1.TabIndex = 5;
-            this.memoEdit1.UseOptimizedRendering = true;
             // 
             // layoutControlItem6
             // 
@@ -311,7 +305,6 @@
             this.layoutControlItem6.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem6.Text = "layoutControlItem6";
             this.layoutControlItem6.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem6.TextToControlDistance = 0;
             this.layoutControlItem6.TextVisible = false;
             // 
             // layoutControlGroup1
@@ -359,7 +352,6 @@
             this.layoutControlItem1.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem1.Text = "layoutControlItem1";
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem1.TextToControlDistance = 0;
             this.layoutControlItem1.TextVisible = false;
             // 
             // emptySpaceItem2
@@ -387,7 +379,6 @@
             this.layoutControlItem2.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem2.Text = "layoutControlItem2";
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem2.TextToControlDistance = 0;
             this.layoutControlItem2.TextVisible = false;
             // 
             // layoutControlItem4
@@ -402,7 +393,6 @@
             this.layoutControlItem4.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem4.Text = "layoutControlItem4";
             this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem4.TextToControlDistance = 0;
             this.layoutControlItem4.TextVisible = false;
             // 
             // emptySpaceItem3
@@ -430,7 +420,6 @@
             this.layoutControlItem5.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem5.Text = "layoutControlItem5";
             this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem5.TextToControlDistance = 0;
             this.layoutControlItem5.TextVisible = false;
             // 
             // emptySpaceItem4
@@ -458,7 +447,6 @@
             this.layoutControlItem3.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem3.Text = "layoutControlItem3";
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem3.TextToControlDistance = 0;
             this.layoutControlItem3.TextVisible = false;
             // 
             // layoutControlItem7
@@ -473,12 +461,7 @@
             this.layoutControlItem7.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem7.Text = "layoutControlItem7";
             this.layoutControlItem7.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem7.TextToControlDistance = 0;
             this.layoutControlItem7.TextVisible = false;
-            // 
-            // agendaBindingSource
-            // 
-            this.agendaBindingSource.DataSource = typeof(SGEntidades.Entidades.Agenda);
             // 
             // uConsultaAgenda
             // 
@@ -487,11 +470,13 @@
             this.Controls.Add(this.layoutControl1);
             this.Name = "uConsultaAgenda";
             this.Size = new System.Drawing.Size(768, 470);
+            this.Load += new System.EventHandler(this.uConsultaAgenda_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dateNavigator1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.schedulerAgenda)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.schedulerAgendaStorage)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.schedulerStorage)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.agendaBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.profissionalBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties)).EndInit();
@@ -508,7 +493,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.agendaBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -518,7 +502,6 @@
         private DevExpress.XtraLayout.LayoutControl layoutControl1;
         private DevExpress.XtraEditors.MemoEdit memoEdit1;
         private DevExpress.XtraScheduler.SchedulerControl schedulerAgenda;
-        private DevExpress.XtraScheduler.SchedulerStorage schedulerAgendaStorage;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup1;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup2;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
@@ -536,7 +519,8 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem5;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem4;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem7;
-        private System.Windows.Forms.BindingSource profissionalBindingSource;
+        private DevExpress.XtraScheduler.SchedulerStorage schedulerStorage;
         private System.Windows.Forms.BindingSource agendaBindingSource;
+        private System.Windows.Forms.BindingSource profissionalBindingSource;
     }
 }

@@ -1,8 +1,8 @@
 D:\Desenvolvimento\SGSalao\SG\SGCore\bin\Debug\SGCore.dll
 D:\Desenvolvimento\SGSalao\SG\SGCore\bin\Debug\SGCore.pdb
-D:\Desenvolvimento\SGSalao\SG\SGCore\obj\Debug\SGCore.dll
-D:\Desenvolvimento\SGSalao\SG\SGCore\obj\Debug\SGCore.pdb
 D:\Desenvolvimento\SGSalao\SG\bin\Debug\SGCore.dll
 D:\Desenvolvimento\SGSalao\SG\bin\Debug\SGCore.pdb
 D:\Desenvolvimento\SGSalao\bin\Debug\SGCore.dll
 D:\Desenvolvimento\SGSalao\bin\Debug\SGCore.pdb
+D:\Desenvolvimento\SGSalao\SG\SGCore\obj\Debug\SGCore.dll
+D:\Desenvolvimento\SGSalao\SG\SGCore\obj\Debug\SGCore.pdb
