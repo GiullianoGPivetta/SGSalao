@@ -81,24 +81,30 @@ namespace SGRepositorio.Repositorio
                 _connection.Conexao.Open();
                 var sql = Resource.Agenda.RecuperarLista;
                 var command = new SqlCommand(sql, _connection.Conexao);
-                command.Parameters.AddWithValue("@Data", data.Date);
-                var reader = command.ExecuteReader();
+                command.Parameters.AddWithValue("@Data", data);
+               
 
-
-                while (reader.Read())
+                using (var reader = command.ExecuteReader())
                 {
-                    var agenda = new AgendaCreator(reader, "A",
-                                      new ClienteCreator(reader, "C", null),
-                                      new ProfissionalCreator(reader, "P", null)).Create();
+                    while (reader.Read())
+                    {
+                        var agenda = new AgendaCreator(reader, "A",
+                                       new ClienteCreator(reader, "C", null),
+                                       new ProfissionalCreator(reader, "P", null)).Create();
 
-                    agenda.Servicos = new ServicoRepositorio().RecuperarListaAgenda(agenda);
+                        agenda.Servicos = new ServicoRepositorio().RecuperarServicoPorAgenda(agenda);
+
+                        list.Add(agenda);
+                    }
                 }
+
+
 
                 return list;
             }
             catch (Exception ex)
             {
-                throw new Exception("Ocorreu um erro no Cadastro", ex);
+                throw new Exception("Ocorreu um erro ao Recuperar Lista de agendas do dia", ex);
             }
             finally
             {

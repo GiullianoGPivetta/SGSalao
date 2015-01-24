@@ -30,7 +30,7 @@ namespace SGEntidades.Entidades
             {
                 var desc = new StringBuilder();
                 Servicos.ForEach(x => desc.Append(string.Format("{0}, ", x.Descricao)));
-                return Convert.ToString(desc);
+                return Convert.ToString(desc.Remove(desc.Length - 2, 1));
             }
         }
 

@@ -118,17 +118,16 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="RecuperarServicosAgenda" xml:space="preserve">
-    <value>select	Servico.IdServico, 
-		Servico.Descricao, 
-		Servico.Valor, 
-		Servico.Tempo, 
-		Servico.Status 
-
-from Servico
-
-inner join AgendaServico ON AgendaServico.IdServico = Servico.IdServico
-inner join agenda ON Agenda.IdAgenda = AgendaServico.IdServico
-where Agenda.IdAgenda = @IdAgenda</value>
+    <value>select S.* from Servico S
+inner join AgendaServico ASE ON ASE.IdAgenda = S.IdServico
+where ASE.IdAgenda = @IdAgenda</value>
     <comment>@IdAgenda</comment>
+  </data>
+  <data name="RecuperarServicosPorProfissional" xml:space="preserve">
+    <value>SELECT S.* from Servico S
+inner join ProfissionalServico PS on PS.IdServico = S.IdServico
+inner join Profissional P ON PS.IdProfissional = P.IdProfissional
+where p.IdProfissional = @IdProfissional</value>
+    <comment>@IdProfissional</comment>
   </data>
 </root>

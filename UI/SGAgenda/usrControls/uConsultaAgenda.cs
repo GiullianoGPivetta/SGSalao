@@ -19,6 +19,7 @@ namespace SGAgenda.usrControls
         private readonly ProfissionalServico _profissionalService = new ProfissionalServico();
         private readonly AgendaServico _agendaServico = new AgendaServico();
         private List<Profissional> _recursos;
+        private List<Agenda> _agendas;
 
         public uConsultaAgenda()
         {
@@ -27,8 +28,8 @@ namespace SGAgenda.usrControls
 
         private void MontaHorarios()
         {
-            var agendas = _agendaServico.RecuperarLista(dateNavigator1.DateTime);
-            schedulerStorage.Appointments.DataSource = agendas;
+            _agendas = _agendaServico.RecuperarLista(dateNavigator1.DateTime.Date);
+            schedulerStorage.Appointments.DataSource = _agendas;
         }
 
         private void RecuperarProfissionaisAgenda()
@@ -60,10 +61,18 @@ namespace SGAgenda.usrControls
                 return;
             }
 
-            var prof = (int)schedulerAgenda.SelectedResource.Id;
+            Agenda agenda = null;
+            if (schedulerAgenda.SelectedAppointments.Count == 1)
+            {
+                agenda = _agendas.First(x => x.IdAgenda == ((Agenda)schedulerAgenda.SelectedAppointments[0].GetRow(schedulerStorage)).IdAgenda);
+            }
+
+            var prof = _recursos.First(x => x.IdProfissional == (int)schedulerAgenda.SelectedResource.Id);
             var time = schedulerAgenda.SelectedInterval.Start;
 
-            var form = new frmDetalheAgenda(prof, time);
+
+            var form = agenda == null ? new frmDetalheAgenda(prof, time) : new frmDetalheAgenda(agenda);
+
             if (form.ShowDialog() == DialogResult.OK)
                 MontaHorarios();
 
@@ -76,9 +85,46 @@ namespace SGAgenda.usrControls
 
             RecuperarProfissionaisAgenda();
             MontaHorarios();
-            
+
             schedulerAgenda.OptionsCustomization.AllowInplaceEditor = UsedAppointmentType.Custom;
             dateNavigator1.Refresh();
+        }
+
+        private void dateNavigator1_EditDateModified(object sender, EventArgs e)
+        {
+            MontaHorarios();
+        }
+
+        private void schedulerAgenda_Click(object sender, EventArgs e)
+        {
+            if (schedulerAgenda.SelectedAppointments.Count == 0)
+            {
+                rteAgenda.Text = string.Empty;
+                return;
+            }
+
+            Agenda agenda = _agendas.First(x => x.IdAgenda == ((Agenda)schedulerAgenda.SelectedAppointments[0].GetRow(schedulerStorage)).IdAgenda);
+            rteAgenda.Text = ResumoDadosDaAgenda(agenda);
+        }
+
+        private string ResumoDadosDaAgenda(Agenda agenda)
+        {
+            var servicos = new StringBuilder();
+
+            foreach (var serv in agenda.Servicos)
+            {
+                servicos.AppendLine("\n " + serv.Descricao);
+            }
+
+            return new StringBuilder().Append("\n Cliente: " + agenda.Cliente.Nome)
+                .Append("\n\n Profissional: " + agenda.Profissional.Nome)
+                .Append("\n\n Data: " + agenda.Data.ToShortDateString())
+                .Append("\n\n Horário: " +
+                        string.Format("{0} - {1}", agenda.HoraInicial.ToShortTimeString(),
+                            agenda.HoraFinal.ToShortTimeString()))
+                .Append("\n\n Telefone: " + agenda.Cliente.Telefone)
+                .Append("\n\n Celular: " + agenda.Cliente.Celular)
+                .Append("\n\n Serviços: " + servicos).ToString();
         }
     }
 }

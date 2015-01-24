@@ -51,7 +51,6 @@
             this.btMes = new DevExpress.XtraEditors.SimpleButton();
             this.btSemana = new DevExpress.XtraEditors.SimpleButton();
             this.btDia = new DevExpress.XtraEditors.SimpleButton();
-            this.memoEdit1 = new DevExpress.XtraEditors.MemoEdit();
             this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlGroup2 = new DevExpress.XtraLayout.LayoutControlGroup();
@@ -62,8 +61,9 @@
             this.emptySpaceItem3 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem4 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.rteAgenda = new System.Windows.Forms.RichTextBox();
+            this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dateNavigator1)).BeginInit();
@@ -73,7 +73,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.profissionalBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.memoEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).BeginInit();
@@ -84,26 +83,26 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
             // 
             this.layoutControl1.AllowCustomization = false;
+            this.layoutControl1.Controls.Add(this.rteAgenda);
             this.layoutControl1.Controls.Add(this.dateNavigator1);
             this.layoutControl1.Controls.Add(this.dateEdit1);
             this.layoutControl1.Controls.Add(this.btMes);
             this.layoutControl1.Controls.Add(this.btSemana);
             this.layoutControl1.Controls.Add(this.btDia);
-            this.layoutControl1.Controls.Add(this.memoEdit1);
             this.layoutControl1.Controls.Add(this.schedulerAgenda);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl1.HiddenItems.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem6});
             this.layoutControl1.Location = new System.Drawing.Point(0, 0);
             this.layoutControl1.Name = "layoutControl1";
-            this.layoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(345, 260, 250, 350);
+            this.layoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(322, 646, 250, 350);
             this.layoutControl1.Root = this.layoutControlGroup1;
             this.layoutControl1.Size = new System.Drawing.Size(768, 470);
             this.layoutControl1.TabIndex = 0;
@@ -118,6 +117,7 @@
             this.dateNavigator1.SchedulerControl = this.schedulerAgenda;
             this.dateNavigator1.Size = new System.Drawing.Size(191, 173);
             this.dateNavigator1.TabIndex = 10;
+            this.dateNavigator1.EditDateModified += new System.EventHandler(this.dateNavigator1_EditDateModified);
             // 
             // schedulerAgenda
             // 
@@ -219,6 +219,7 @@
             this.schedulerAgenda.Views.WorkWeekView.Enabled = false;
             this.schedulerAgenda.Views.WorkWeekView.TimeRulers.Add(timeRuler2);
             this.schedulerAgenda.EditAppointmentFormShowing += new DevExpress.XtraScheduler.AppointmentFormEventHandler(this.schedulerAgenda_EditAppointmentFormShowing);
+            this.schedulerAgenda.Click += new System.EventHandler(this.schedulerAgenda_Click);
             // 
             // schedulerStorage
             // 
@@ -227,7 +228,7 @@
             this.schedulerStorage.Appointments.Mappings.End = "HoraFinal";
             this.schedulerStorage.Appointments.Mappings.ResourceId = "Profissional.IdProfissional";
             this.schedulerStorage.Appointments.Mappings.Start = "HoraInicial";
-            this.schedulerStorage.Appointments.Mappings.Subject = "Cliente.Nome";
+            this.schedulerStorage.Appointments.Mappings.Subject = "AgendaDescricao";
             this.schedulerStorage.Resources.DataSource = this.profissionalBindingSource;
             this.schedulerStorage.Resources.Mappings.Caption = "Nome";
             this.schedulerStorage.Resources.Mappings.Id = "IdProfissional";
@@ -286,14 +287,6 @@
             this.btDia.Text = "Dia";
             this.btDia.Click += new System.EventHandler(this.btDia_Click);
             // 
-            // memoEdit1
-            // 
-            this.memoEdit1.Location = new System.Drawing.Point(574, 180);
-            this.memoEdit1.Name = "memoEdit1";
-            this.memoEdit1.Size = new System.Drawing.Size(191, 287);
-            this.memoEdit1.StyleController = this.layoutControl1;
-            this.memoEdit1.TabIndex = 5;
-            // 
             // layoutControlItem6
             // 
             this.layoutControlItem6.Control = this.dateEdit1;
@@ -314,8 +307,8 @@
             this.layoutControlGroup1.GroupBordersVisible = false;
             this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlGroup2,
-            this.layoutControlItem3,
-            this.layoutControlItem7});
+            this.layoutControlItem7,
+            this.layoutControlItem3});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "layoutControlGroup1";
             this.layoutControlGroup1.Padding = new DevExpress.XtraLayout.Utils.Padding(1, 1, 1, 1);
@@ -435,20 +428,6 @@
             this.emptySpaceItem4.Text = "emptySpaceItem4";
             this.emptySpaceItem4.TextSize = new System.Drawing.Size(0, 0);
             // 
-            // layoutControlItem3
-            // 
-            this.layoutControlItem3.Control = this.memoEdit1;
-            this.layoutControlItem3.CustomizationFormText = "layoutControlItem3";
-            this.layoutControlItem3.Location = new System.Drawing.Point(571, 177);
-            this.layoutControlItem3.MaxSize = new System.Drawing.Size(195, 0);
-            this.layoutControlItem3.MinSize = new System.Drawing.Size(195, 20);
-            this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(195, 291);
-            this.layoutControlItem3.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlItem3.Text = "layoutControlItem3";
-            this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem3.TextVisible = false;
-            // 
             // layoutControlItem7
             // 
             this.layoutControlItem7.Control = this.dateNavigator1;
@@ -462,6 +441,25 @@
             this.layoutControlItem7.Text = "layoutControlItem7";
             this.layoutControlItem7.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem7.TextVisible = false;
+            // 
+            // rteAgenda
+            // 
+            this.rteAgenda.Location = new System.Drawing.Point(574, 180);
+            this.rteAgenda.Name = "rteAgenda";
+            this.rteAgenda.Size = new System.Drawing.Size(191, 287);
+            this.rteAgenda.TabIndex = 11;
+            this.rteAgenda.Text = "";
+            // 
+            // layoutControlItem3
+            // 
+            this.layoutControlItem3.Control = this.rteAgenda;
+            this.layoutControlItem3.CustomizationFormText = "layoutControlItem3";
+            this.layoutControlItem3.Location = new System.Drawing.Point(571, 177);
+            this.layoutControlItem3.Name = "layoutControlItem3";
+            this.layoutControlItem3.Size = new System.Drawing.Size(195, 291);
+            this.layoutControlItem3.Text = "layoutControlItem3";
+            this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem3.TextVisible = false;
             // 
             // uConsultaAgenda
             // 
@@ -480,7 +478,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.profissionalBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.memoEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).EndInit();
@@ -491,8 +488,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -500,13 +497,11 @@
         #endregion
 
         private DevExpress.XtraLayout.LayoutControl layoutControl1;
-        private DevExpress.XtraEditors.MemoEdit memoEdit1;
         private DevExpress.XtraScheduler.SchedulerControl schedulerAgenda;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup1;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup2;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem2;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
         private DevExpress.XtraScheduler.DateNavigator dateNavigator1;
         private DevExpress.XtraEditors.DateEdit dateEdit1;
         private DevExpress.XtraEditors.SimpleButton btMes;
@@ -522,5 +517,7 @@
         private DevExpress.XtraScheduler.SchedulerStorage schedulerStorage;
         private System.Windows.Forms.BindingSource agendaBindingSource;
         private System.Windows.Forms.BindingSource profissionalBindingSource;
+        private System.Windows.Forms.RichTextBox rteAgenda;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
     }
 }

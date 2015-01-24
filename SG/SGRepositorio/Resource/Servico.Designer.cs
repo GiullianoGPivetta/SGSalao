@@ -61,21 +61,25 @@ namespace SGRepositorio.Resource {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to select	Servico.IdServico, 
-        ///		Servico.Descricao, 
-        ///		Servico.Valor, 
-        ///		Servico.Tempo, 
-        ///		Servico.Status 
-        ///
-        ///from Servico
-        ///
-        ///inner join AgendaServico ON AgendaServico.IdServico = Servico.IdServico
-        ///inner join agenda ON Agenda.IdAgenda = AgendaServico.IdServico
-        ///where Agenda.IdAgenda = @IdAgenda.
+        ///   Looks up a localized string similar to select S.* from Servico S
+        ///inner join AgendaServico ASE ON ASE.IdAgenda = S.IdServico
+        ///where ASE.IdAgenda = @IdAgenda.
         /// </summary>
         internal static string RecuperarServicosAgenda {
             get {
                 return ResourceManager.GetString("RecuperarServicosAgenda", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SELECT S.* from Servico S
+        ///inner join ProfissionalServico PS on PS.IdServico = S.IdServico
+        ///inner join Profissional P ON PS.IdProfissional = P.IdProfissional
+        ///where p.IdProfissional = @IdProfissional.
+        /// </summary>
+        internal static string RecuperarServicosPorProfissional {
+            get {
+                return ResourceManager.GetString("RecuperarServicosPorProfissional", resourceCulture);
             }
         }
     }

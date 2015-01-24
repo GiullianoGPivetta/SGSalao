@@ -31,6 +31,7 @@ namespace SGAgenda
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDetalheAgenda));
             this.btGravar = new DevExpress.XtraEditors.SimpleButton();
             this.cboSituacao = new DevExpress.XtraEditors.ComboBoxEdit();
@@ -45,21 +46,26 @@ namespace SGAgenda
             this.lblDataHoraAgenda = new DevExpress.XtraEditors.LabelControl();
             this.lblStatus = new DevExpress.XtraEditors.LabelControl();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
+            this.lblServico = new DevExpress.XtraEditors.LabelControl();
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
             this.lblValor = new DevExpress.XtraEditors.LabelControl();
             this.gcServicos = new DevExpress.XtraGrid.GridControl();
             this.gvServicos = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colIdServico = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.riSelecionado = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.colDescricao = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colValor = new DevExpress.XtraGrid.Columns.GridColumn();
             this.coltempo = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colValor = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colSelecionado = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.dxError = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.cboSituacao.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtComentario.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bteCliente.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboProfissional.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcServicos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvServicos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.riSelecionado)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dxError)).BeginInit();
             this.SuspendLayout();
             // 
             // btGravar
@@ -137,6 +143,7 @@ namespace SGAgenda
             this.cboProfissional.Properties.ValueMember = "IdProfissional";
             this.cboProfissional.Size = new System.Drawing.Size(309, 20);
             this.cboProfissional.TabIndex = 0;
+            this.cboProfissional.EditValueChanged += new System.EventHandler(this.cboProfissional_EditValueChanged);
             // 
             // lblProfissional
             // 
@@ -188,13 +195,13 @@ namespace SGAgenda
             this.labelControl4.TabIndex = 16;
             this.labelControl4.Text = "Comentários:";
             // 
-            // labelControl5
+            // lblServico
             // 
-            this.labelControl5.Location = new System.Drawing.Point(9, 113);
-            this.labelControl5.Name = "labelControl5";
-            this.labelControl5.Size = new System.Drawing.Size(44, 13);
-            this.labelControl5.TabIndex = 17;
-            this.labelControl5.Text = "Serviços:";
+            this.lblServico.Location = new System.Drawing.Point(9, 113);
+            this.lblServico.Name = "lblServico";
+            this.lblServico.Size = new System.Drawing.Size(44, 13);
+            this.lblServico.TabIndex = 17;
+            this.lblServico.Text = "Serviços:";
             // 
             // labelControl6
             // 
@@ -218,6 +225,8 @@ namespace SGAgenda
             this.gcServicos.Location = new System.Drawing.Point(9, 132);
             this.gcServicos.MainView = this.gvServicos;
             this.gcServicos.Name = "gcServicos";
+            this.gcServicos.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.riSelecionado});
             this.gcServicos.Size = new System.Drawing.Size(373, 124);
             this.gcServicos.TabIndex = 20;
             this.gcServicos.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -229,7 +238,8 @@ namespace SGAgenda
             this.colIdServico,
             this.colDescricao,
             this.coltempo,
-            this.colValor});
+            this.colValor,
+            this.colSelecionado});
             this.gvServicos.GridControl = this.gcServicos;
             this.gvServicos.Name = "gvServicos";
             this.gvServicos.OptionsView.ShowGroupPanel = false;
@@ -237,8 +247,14 @@ namespace SGAgenda
             // colIdServico
             // 
             this.colIdServico.Caption = "IdServico";
+            this.colIdServico.ColumnEdit = this.riSelecionado;
             this.colIdServico.FieldName = "IdServico";
             this.colIdServico.Name = "colIdServico";
+            // 
+            // riSelecionado
+            // 
+            this.riSelecionado.AutoHeight = false;
+            this.riSelecionado.Name = "riSelecionado";
             // 
             // colDescricao
             // 
@@ -246,8 +262,19 @@ namespace SGAgenda
             this.colDescricao.FieldName = "Descricao";
             this.colDescricao.Name = "colDescricao";
             this.colDescricao.Visible = true;
-            this.colDescricao.VisibleIndex = 0;
-            this.colDescricao.Width = 601;
+            this.colDescricao.VisibleIndex = 1;
+            this.colDescricao.Width = 486;
+            // 
+            // coltempo
+            // 
+            this.coltempo.Caption = "Tempo";
+            this.coltempo.DisplayFormat.FormatString = "{0} min";
+            this.coltempo.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
+            this.coltempo.FieldName = "Tempo";
+            this.coltempo.Name = "coltempo";
+            this.coltempo.Visible = true;
+            this.coltempo.VisibleIndex = 2;
+            this.coltempo.Width = 119;
             // 
             // colValor
             // 
@@ -257,17 +284,22 @@ namespace SGAgenda
             this.colValor.FieldName = "Valor";
             this.colValor.Name = "colValor";
             this.colValor.Visible = true;
-            this.colValor.VisibleIndex = 2;
-            this.colValor.Width = 92;
+            this.colValor.VisibleIndex = 3;
+            this.colValor.Width = 135;
             // 
-            // coltempo
+            // colSelecionado
             // 
-            this.coltempo.Caption = "Tempo";
-            this.coltempo.FieldName = "Tempo";
-            this.coltempo.Name = "coltempo";
-            this.coltempo.Visible = true;
-            this.coltempo.VisibleIndex = 1;
-            this.coltempo.Width = 88;
+            this.colSelecionado.Caption = " ";
+            this.colSelecionado.FieldName = "Selecionado";
+            this.colSelecionado.Name = "colSelecionado";
+            this.colSelecionado.UnboundType = DevExpress.Data.UnboundColumnType.Boolean;
+            this.colSelecionado.Visible = true;
+            this.colSelecionado.VisibleIndex = 0;
+            this.colSelecionado.Width = 41;
+            // 
+            // dxError
+            // 
+            this.dxError.ContainerControl = this;
             // 
             // frmDetalheAgenda
             // 
@@ -277,7 +309,7 @@ namespace SGAgenda
             this.Controls.Add(this.gcServicos);
             this.Controls.Add(this.lblValor);
             this.Controls.Add(this.labelControl6);
-            this.Controls.Add(this.labelControl5);
+            this.Controls.Add(this.lblServico);
             this.Controls.Add(this.labelControl4);
             this.Controls.Add(this.lblStatus);
             this.Controls.Add(this.lblDataHoraAgenda);
@@ -291,6 +323,9 @@ namespace SGAgenda
             this.Controls.Add(this.btCancelar);
             this.Controls.Add(this.txtComentario);
             this.Controls.Add(this.cboSituacao);
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(410, 411);
+            this.MinimumSize = new System.Drawing.Size(410, 411);
             this.Name = "frmDetalheAgenda";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.frmDetalheAgenda_Load);
@@ -300,6 +335,8 @@ namespace SGAgenda
             ((System.ComponentModel.ISupportInitialize)(this.cboProfissional.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcServicos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvServicos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.riSelecionado)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dxError)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -320,7 +357,7 @@ namespace SGAgenda
         private DevExpress.XtraEditors.LabelControl lblDataHoraAgenda;
         private DevExpress.XtraEditors.LabelControl lblStatus;
         private DevExpress.XtraEditors.LabelControl labelControl4;
-        private DevExpress.XtraEditors.LabelControl labelControl5;
+        private DevExpress.XtraEditors.LabelControl lblServico;
         private DevExpress.XtraEditors.LabelControl labelControl6;
         private DevExpress.XtraEditors.LabelControl lblValor;
         private DevExpress.XtraGrid.GridControl gcServicos;
@@ -329,5 +366,8 @@ namespace SGAgenda
         private DevExpress.XtraGrid.Columns.GridColumn colDescricao;
         private DevExpress.XtraGrid.Columns.GridColumn coltempo;
         private DevExpress.XtraGrid.Columns.GridColumn colValor;
+        private DevExpress.XtraGrid.Columns.GridColumn colSelecionado;
+        private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit riSelecionado;
+        private DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider dxError;
     }
 }

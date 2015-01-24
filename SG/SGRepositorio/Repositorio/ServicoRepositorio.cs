@@ -70,7 +70,32 @@ namespace SGRepositorio.Repositorio
             }
         }
 
-        public List<Servico> RecuperarListaAgenda(Agenda agenda)
+        public List<Servico> RecuperarListaPorProfissional(Profissional profissional)
+        {
+            try
+            {
+                var list = new List<Servico>();
+                _connection.Conexao.Open();
+                var sql = Resource.Servico.RecuperarServicosPorProfissional;
+                var command = new SqlCommand(sql, _connection.Conexao);
+                command.Parameters.AddWithValue("@IdProfissional", profissional.IdProfissional);
+                var reader = command.ExecuteReader();
+
+                while (reader.Read()) { list.Add(new ServicoCreator(reader, "", null).Create()); }
+
+                return list;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Ocorreu um erro ao recuperar a lista de serviços do Profissional", ex);
+            }
+            finally
+            {
+                _connection.Conexao.Close();
+            }
+        }
+
+        public List<Servico> RecuperarServicoPorAgenda(Agenda agenda)
         {
             try
             {
@@ -87,13 +112,17 @@ namespace SGRepositorio.Repositorio
             }
             catch (Exception ex)
             {
-                throw new Exception("Ocorreu um erro ao recuperar a lista de serviços da agenda", ex);
+                throw new Exception("Ocorreu um erro ao recuperar a lista de serviços do Profissional", ex);
             }
             finally
             {
                 _connection.Conexao.Close();
             }
         }
+
+
+
+
 
         public List<Servico> RecuperarLista(Status status)
         {

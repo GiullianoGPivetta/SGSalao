@@ -43,6 +43,7 @@
     <Compile Include="Servicos\AgendaServico.cs" />
     <Compile Include="Servicos\ClienteServico.cs" />
     <Compile Include="Servicos\ProfissionalServico.cs" />
+    <Compile Include="Servicos\ServicoServico.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
