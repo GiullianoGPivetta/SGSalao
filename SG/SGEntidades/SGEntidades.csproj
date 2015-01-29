@@ -39,7 +39,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DTO\ServicoSelecionado.cs" />
     <Compile Include="Entidades\Agenda.cs" />
     <Compile Include="Entidades\Cliente.cs" />
     <Compile Include="Entidades\Profissional.cs" />
@@ -55,6 +54,9 @@
       <Project>{C82DD9F8-20E3-48AA-9CDF-61C5F126AD7D}</Project>
       <Name>SGCore</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="DTO\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -140,6 +140,10 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\SG\SGCore\SGCore.csproj">
+      <Project>{C82DD9F8-20E3-48AA-9CDF-61C5F126AD7D}</Project>
+      <Name>SGCore</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\SG\SGEntidades\SGEntidades.csproj">
       <Project>{0B264AF3-4429-4DC1-A55E-C5DAA6E34B4B}</Project>
       <Name>SGEntidades</Name>

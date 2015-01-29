@@ -61,17 +61,22 @@ namespace SGAgenda.usrControls
                 return;
             }
 
-            Agenda agenda = null;
+            Agenda agenda;
             if (schedulerAgenda.SelectedAppointments.Count == 1)
             {
                 agenda = _agendas.First(x => x.IdAgenda == ((Agenda)schedulerAgenda.SelectedAppointments[0].GetRow(schedulerStorage)).IdAgenda);
             }
+            else
+            {
+                agenda = new Agenda
+                {
+                    Profissional = _recursos.First(x => x.IdProfissional == (int)schedulerAgenda.SelectedResource.Id),
+                    HoraInicial = schedulerAgenda.SelectedInterval.Start,
+                    Data = dateNavigator1.DateTime.Date
+                };
+            }
 
-            var prof = _recursos.First(x => x.IdProfissional == (int)schedulerAgenda.SelectedResource.Id);
-            var time = schedulerAgenda.SelectedInterval.Start;
-
-
-            var form = agenda == null ? new frmDetalheAgenda(prof, time) : new frmDetalheAgenda(agenda);
+            var form = new frmDetalheAgenda(agenda);
 
             if (form.ShowDialog() == DialogResult.OK)
                 MontaHorarios();

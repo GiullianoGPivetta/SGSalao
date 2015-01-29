@@ -49,7 +49,7 @@ namespace SGRepositorio.Repositorio
             try
             {
                 _connection.Conexao.Open();
-                var sql = Resource.Agenda.Inserir;
+                var sql = Resource.Agenda.Editar;
                 var command = new SqlCommand(sql, _connection.Conexao);
 
                 command.Parameters.AddWithValue("@IdAgenda", agenda.IdAgenda);

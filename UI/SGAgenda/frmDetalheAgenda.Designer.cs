@@ -80,10 +80,15 @@ namespace SGAgenda
             // 
             // cboSituacao
             // 
+            this.cboSituacao.EditValue = "Aberta";
             this.cboSituacao.Location = new System.Drawing.Point(291, 85);
             this.cboSituacao.Name = "cboSituacao";
             this.cboSituacao.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cboSituacao.Properties.Items.AddRange(new object[] {
+            "Aberta",
+            "Cancelada",
+            "Finalizada"});
             this.cboSituacao.Size = new System.Drawing.Size(91, 20);
             this.cboSituacao.TabIndex = 2;
             // 
@@ -171,10 +176,10 @@ namespace SGAgenda
             // 
             // lblDataHoraAgenda
             // 
-            this.lblDataHoraAgenda.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
-            this.lblDataHoraAgenda.Location = new System.Drawing.Point(109, 88);
+            this.lblDataHoraAgenda.Appearance.Font = new System.Drawing.Font("Tahoma", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDataHoraAgenda.Location = new System.Drawing.Point(106, 90);
             this.lblDataHoraAgenda.Name = "lblDataHoraAgenda";
-            this.lblDataHoraAgenda.Size = new System.Drawing.Size(75, 13);
+            this.lblDataHoraAgenda.Size = new System.Drawing.Size(68, 11);
             this.lblDataHoraAgenda.TabIndex = 13;
             this.lblDataHoraAgenda.Text = "labelControl4";
             this.lblDataHoraAgenda.Visible = false;
@@ -216,9 +221,8 @@ namespace SGAgenda
             this.lblValor.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
             this.lblValor.Location = new System.Drawing.Point(291, 113);
             this.lblValor.Name = "lblValor";
-            this.lblValor.Size = new System.Drawing.Size(42, 13);
+            this.lblValor.Size = new System.Drawing.Size(0, 13);
             this.lblValor.TabIndex = 19;
-            this.lblValor.Text = "lblValor";
             // 
             // gcServicos
             // 
