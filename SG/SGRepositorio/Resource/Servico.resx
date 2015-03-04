@@ -117,9 +117,21 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Inserir" xml:space="preserve">
+    <value>insert into Servico (Descricao,Tempo,Valor,Status) values (@Descricao,@Tempo,@Valor,@Status)</value>
+    <comment>@Descricao,@Tempo,@Valor,@Status</comment>
+  </data>
+  <data name="Recuperar" xml:space="preserve">
+    <value>select idservico, descricao, valor, tempo, status from servico where IdServico = @IdServico</value>
+    <comment>@IdServico</comment>
+  </data>
+  <data name="RecuperarListaStatus" xml:space="preserve">
+    <value>select idservico, descricao, valor, tempo, status from servico </value>
+    <comment>@Status</comment>
+  </data>
   <data name="RecuperarServicosAgenda" xml:space="preserve">
     <value>select S.* from Servico S
-inner join AgendaServico ASE ON ASE.IdAgenda = S.IdServico
+inner join AgendaServico ASE ON ASE.IdServico = S.IdServico
 where ASE.IdAgenda = @IdAgenda</value>
     <comment>@IdAgenda</comment>
   </data>
@@ -129,5 +141,12 @@ inner join ProfissionalServico PS on PS.IdServico = S.IdServico
 inner join Profissional P ON PS.IdProfissional = P.IdProfissional
 where p.IdProfissional = @IdProfissional</value>
     <comment>@IdProfissional</comment>
+  </data>
+  <data name="Update" xml:space="preserve">
+    <value>update Servico set Descricao = @Descricao, Status = @Status, Tempo = @Tempo, Valor = @Valor where IdServico = @IdServico</value>
+  </data>
+  <data name="UpdateStatus" xml:space="preserve">
+    <value>update servico set status = @Status where IdServico = @IdServico</value>
+    <comment>@IdServico, @Status</comment>
   </data>
 </root>

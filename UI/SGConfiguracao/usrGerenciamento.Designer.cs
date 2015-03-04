@@ -30,7 +30,7 @@
         {
             this.tabControl = new DevExpress.XtraTab.XtraTabControl();
             this.TabProfissional = new DevExpress.XtraTab.XtraTabPage();
-            this.xtraTabPage2 = new DevExpress.XtraTab.XtraTabPage();
+            this.TabServicos = new DevExpress.XtraTab.XtraTabPage();
             ((System.ComponentModel.ISupportInitialize)(this.tabControl)).BeginInit();
             this.tabControl.SuspendLayout();
             this.SuspendLayout();
@@ -40,12 +40,13 @@
             this.tabControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl.Location = new System.Drawing.Point(0, 0);
             this.tabControl.Name = "tabControl";
-            this.tabControl.SelectedTabPage = this.TabProfissional;
+            this.tabControl.SelectedTabPage = this.TabServicos;
             this.tabControl.Size = new System.Drawing.Size(757, 418);
             this.tabControl.TabIndex = 0;
             this.tabControl.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.TabProfissional,
-            this.xtraTabPage2});
+            this.TabServicos});
+            this.tabControl.SelectedPageChanged += new DevExpress.XtraTab.TabPageChangedEventHandler(this.tabControl_SelectedPageChanged);
             // 
             // TabProfissional
             // 
@@ -53,11 +54,11 @@
             this.TabProfissional.Size = new System.Drawing.Size(751, 390);
             this.TabProfissional.Text = "Profissional";
             // 
-            // xtraTabPage2
+            // TabServicos
             // 
-            this.xtraTabPage2.Name = "xtraTabPage2";
-            this.xtraTabPage2.Size = new System.Drawing.Size(751, 390);
-            this.xtraTabPage2.Text = "xtraTabPage2";
+            this.TabServicos.Name = "TabServicos";
+            this.TabServicos.Size = new System.Drawing.Size(751, 390);
+            this.TabServicos.Text = "Serviços";
             // 
             // usrGerenciamento
             // 
@@ -76,6 +77,6 @@
 
         private DevExpress.XtraTab.XtraTabControl tabControl;
         private DevExpress.XtraTab.XtraTabPage TabProfissional;
-        private DevExpress.XtraTab.XtraTabPage xtraTabPage2;
+        private DevExpress.XtraTab.XtraTabPage TabServicos;
     }
 }

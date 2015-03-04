@@ -259,12 +259,15 @@ namespace SGAgenda
             // 
             this.riSelecionado.AutoHeight = false;
             this.riSelecionado.Name = "riSelecionado";
+            this.riSelecionado.ValueGrayed = false;
+            this.riSelecionado.CheckedChanged += new System.EventHandler(this.riSelecionado_CheckedChanged);
             // 
             // colDescricao
             // 
             this.colDescricao.Caption = "Descrição";
             this.colDescricao.FieldName = "Descricao";
             this.colDescricao.Name = "colDescricao";
+            this.colDescricao.OptionsColumn.AllowEdit = false;
             this.colDescricao.Visible = true;
             this.colDescricao.VisibleIndex = 1;
             this.colDescricao.Width = 486;
@@ -276,6 +279,7 @@ namespace SGAgenda
             this.coltempo.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
             this.coltempo.FieldName = "Tempo";
             this.coltempo.Name = "coltempo";
+            this.coltempo.OptionsColumn.AllowEdit = false;
             this.coltempo.Visible = true;
             this.coltempo.VisibleIndex = 2;
             this.coltempo.Width = 119;
@@ -287,6 +291,7 @@ namespace SGAgenda
             this.colValor.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
             this.colValor.FieldName = "Valor";
             this.colValor.Name = "colValor";
+            this.colValor.OptionsColumn.AllowEdit = false;
             this.colValor.Visible = true;
             this.colValor.VisibleIndex = 3;
             this.colValor.Width = 135;
@@ -294,6 +299,7 @@ namespace SGAgenda
             // colSelecionado
             // 
             this.colSelecionado.Caption = " ";
+            this.colSelecionado.ColumnEdit = this.riSelecionado;
             this.colSelecionado.FieldName = "Selecionado";
             this.colSelecionado.Name = "colSelecionado";
             this.colSelecionado.UnboundType = DevExpress.Data.UnboundColumnType.Boolean;

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DevExpress.XtraEditors;
 using SGCore.Utils;
 using SGEntidades.Entidades;
 using SGEntidades.Enum;
@@ -18,7 +19,8 @@ namespace SGProfissional
     {
         private readonly Profissional _profissional;
         private readonly ProfissionalServico _profissionalServSevico = new ProfissionalServico();
-        
+        private readonly ServicoServico _servicoServico = new ServicoServico();
+
         public fDetalheProfissional()
         {
             InitializeComponent();
@@ -101,5 +103,55 @@ namespace SGProfissional
             return !dxError.HasErrors;
         }
 
+        private void TabControl_SelectedPageChanged(object sender, DevExpress.XtraTab.TabPageChangedEventArgs e)
+        {
+            if (TabControl.SelectedTabPage == TabServicos)
+                MontaServicos();
+        }
+
+        private void MontaServicos()
+        {
+            var servicos = _servicoServico.RecuperarListaStatus(Status.Ativo);
+            var servicosProfissional = _servicoServico.RecuperarListaPorProfissional(_profissional);
+
+            foreach (var s in servicosProfissional)
+            {
+                (servicos.First(x => x.IdServico == s.IdServico)).Selecionado = true;
+            }
+
+            gcServicos.DataSource = servicos.OrderBy(x => x.Descricao);
+
+        }
+
+        private void TabControl_SelectedPageChanging(object sender, DevExpress.XtraTab.TabPageChangingEventArgs e)
+        {
+            if (_profissional == null)
+            {
+                MessageBox.Show("Salve as informações antes para poder acessar os serviços.",
+                    "Martins e Nickel Centro de Beleza", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                TabControl.SelectedTabPage = TabInfo;
+
+                e.Cancel = true;
+            }
+        }
+
+        private void riSelecionar_CheckedChanged(object sender, EventArgs e)
+        {
+            if (gvServicos.SelectedRowsCount == 0) return;
+            var serv = gvServicos.GetFocusedRow() as Servico;
+            if (serv == null) return;
+
+
+            var check = (CheckEdit)sender;
+
+            if (check.Checked)
+            {
+                _profissionalServSevico.InserirServico(_profissional.IdProfissional, serv.IdServico);
+            }
+            else
+            {
+                _profissionalServSevico.DeletarServico(_profissional.IdProfissional, serv.IdServico);
+            }
+        }
     }
 }

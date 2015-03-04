@@ -1,18 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Windows.Forms;
-using DevExpress.Utils.Serializing;
+using DevExpress.Utils.Drawing.Helpers;
+using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
 using DevExpress.XtraEditors.DXErrorProvider;
-using DevExpress.XtraScheduler;
-using DevExpress.XtraScheduler.Forms;
 using SGCliente;
 using SGCore.Utils;
 using SGEntidades.Entidades;
@@ -42,6 +35,7 @@ namespace SGAgenda
 
             _profissionais = _profissionalService.RecuperarParticipaAgenda();
             cboProfissional.Properties.DataSource = _profissionais;
+            cboSituacao.Enabled = false;
         }
 
         public frmDetalheAgenda(Agenda agenda)
@@ -49,6 +43,9 @@ namespace SGAgenda
         {
 
             _agenda = agenda;
+            cboSituacao.Enabled = false;
+            lblValor.Visible = true;
+            lblValor.Text = string.Format("{0:c}", 0);
 
             cboProfissional.EditValue = agenda.Profissional.IdProfissional;
             cboProfissional.Properties.ForceInitialize();
@@ -61,13 +58,23 @@ namespace SGAgenda
             lblDataHoraAgenda.Text = string.Format("{0:dd/MM/yy} {1} - {2}", agenda.Data, agenda.HoraInicial.ToShortTimeString(), agenda.HoraFinal.ToShortTimeString());
             lblDataHoraAgenda.Visible = true;
 
-            var servicos = _ServicoService.RecuperarListaPorProfissional((Profissional)cboProfissional.GetSelectedDataRow());
+            List<Servico> serv = _ServicoService.RecuperarListaPorProfissional((Profissional)cboProfissional.GetSelectedDataRow());
 
             if (_agenda.Servicos != null)
-                foreach (var serv in from serv in servicos from serv2 in agenda.Servicos.Where(serv2 => serv.IdServico == serv2.IdServico) select serv)
-                { serv.Selecionado = true; }
+                if (_agenda.Servicos.Any())
+                {
+                    foreach (var servico in _agenda.Servicos)
+                    {
+                        if (serv.Any(x => x.IdServico == servico.IdServico))
+                            serv.First(x => x.IdServico == servico.IdServico).Selecionado = true;
 
-            gcServicos.DataSource = servicos;
+                    }
+
+                    lblValor.Text = string.Format("{0:c}", (serv.Where(x => x.Selecionado)).Sum(y => y.Valor));
+                }
+
+
+            gcServicos.DataSource = serv;
             gcServicos.RefreshDataSource();
         }
 
@@ -75,9 +82,9 @@ namespace SGAgenda
         {
             _cliente = _agenda.Cliente;
             bteCliente.Text = _cliente.Nome;
+            cboSituacao.Enabled = true;
             cboSituacao.SelectedText = EnumUtils<SituacaoAgenda>.GetDescription(_agenda.Situacao);
         }
-
 
         private void ConsultaProcedimentosProfissional()
         {
@@ -88,14 +95,14 @@ namespace SGAgenda
             gcServicos.RefreshDataSource();
         }
 
-
         private void btnOk_Click(object sender, EventArgs e)
         {
             if (!Validar()) return;
 
+            var list = gcServicos.DataSource as List<Servico>;
 
-            List<Servico> servicos = (List<Servico>) ((List<Servico>) gcServicos.DataSource).Where(x => x.Selecionado);
-            
+            List<Servico> servicos = new List<Servico>(list.Where(x => x.Selecionado).ToList());
+
             var tempo = servicos.Sum(x => x.Tempo);
 
             var agenda = new Agenda
@@ -134,13 +141,13 @@ namespace SGAgenda
             if (string.IsNullOrEmpty(bteCliente.Text))
                 dxError.SetError(bteCliente, "Deve ser Selecionado o Cliente da Agenda", ErrorType.Critical);
 
-            if (!((List<Servico>)gcServicos.DataSource).Any(x => x.Selecionado))
-                dxError.SetError(lblServico, "Devem ser selecionado os Serviços a serem realizados no Cliente", ErrorType.Critical);
+            if (gcServicos.DataSource == null || !((List<Servico>)gcServicos.DataSource).Any(x => x.Selecionado))
+                dxError.SetError(bteCliente, "Devem ser selecionado os Serviços a serem realizados no Cliente", ErrorType.Critical);
 
             return !dxError.HasErrors;
         }
 
-        private void bteCliente_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        private void bteCliente_ButtonClick(object sender, ButtonPressedEventArgs e)
         {
             var frm = new frmConsultaCliente(true);
             if (frm.ShowDialog() != DialogResult.OK) return;
@@ -163,6 +170,25 @@ namespace SGAgenda
         private void cboProfissional_EditValueChanged(object sender, EventArgs e)
         {
             ConsultaProcedimentosProfissional();
+        }
+
+        private void riSelecionado_CheckedChanged(object sender, EventArgs e)
+        {
+            var servs = gcServicos.DataSource as List<Servico>;
+
+            if (servs != null)
+                servs.First(x => x.IdServico == ((Servico)gvServicos.GetFocusedRow()).IdServico).Selecionado = ((CheckEdit)sender).Checked;
+
+            if (servs != null && servs.Any(x => x.Selecionado))
+            {
+                lblDataHoraAgenda.Text = string.Format("{0:dd/MM/yy} {1} - {2}", _agenda.Data, _agenda.HoraInicial.ToShortTimeString(), _agenda.HoraInicial.AddMinutes((servs.Where(x => x.Selecionado)).Sum(y => y.Tempo)).ToShortTimeString());
+                lblValor.Text = string.Format("{0:c}", (servs.Where(x => x.Selecionado)).Sum(y => y.Valor));
+            }
+            else
+            {
+                lblDataHoraAgenda.Text = string.Format("{0:dd/MM/yy} {1} - {2}", _agenda.Data, _agenda.HoraInicial.ToShortTimeString(), _agenda.HoraInicial.ToShortTimeString());
+                lblValor.Text = string.Format("{0:c}", 0);
+            }
         }
     }
 }

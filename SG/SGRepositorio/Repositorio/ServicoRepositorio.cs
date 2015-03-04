@@ -18,16 +18,13 @@ namespace SGRepositorio.Repositorio
             try
             {
                 _connection.Conexao.Open();
-                var sql = Resource.Agenda.Inserir;
+                var sql = Resource.Servico.Inserir;
                 var command = new SqlCommand(sql, _connection.Conexao);
 
-                //command.Parameters.AddWithValue("@IdCliente", agenda.Cliente.IdCliente);
-                //command.Parameters.AddWithValue("@IdProfissional", agenda.Profissional.IdProfissional);
-                //command.Parameters.AddWithValue("@Data", agenda.Data);
-                //command.Parameters.AddWithValue("@Situacao", EnumUtils<SituacaoAgenda>.GetValue<string>(agenda.Situacao));
-                //command.Parameters.AddWithValue("@HoraInicio", agenda.HoraInicio);
-                //command.Parameters.AddWithValue("@HoraFim", agenda.HoraFim);
-                //command.Parameters.AddWithValue("@Complemento", agenda.Complemento);
+                command.Parameters.AddWithValue("@Descricao", servico.Descricao);
+                command.Parameters.AddWithValue("@Tempo", servico.Tempo);
+                command.Parameters.AddWithValue("@Valor", servico.Valor);
+                command.Parameters.AddWithValue("@Status", EnumUtils<Status>.GetValue<string>(servico.Status));
 
                 command.ExecuteNonQuery();
             }
@@ -46,23 +43,21 @@ namespace SGRepositorio.Repositorio
             try
             {
                 _connection.Conexao.Open();
-                var sql = Resource.Agenda.Inserir;
+                var sql = Resource.Servico.Update;
                 var command = new SqlCommand(sql, _connection.Conexao);
 
-                //command.Parameters.AddWithValue("@IdAgenda", agenda.IdAgenda);
-                //command.Parameters.AddWithValue("@IdCliente", agenda.Cliente.IdCliente);
-                //command.Parameters.AddWithValue("@IdProfissional", agenda.Profissional.IdProfissional);
-                //command.Parameters.AddWithValue("@Data", agenda.Data);
-                //command.Parameters.AddWithValue("@Situacao", EnumUtils<SituacaoAgenda>.GetValue<string>(agenda.Situacao));
-                //command.Parameters.AddWithValue("@HoraInicio", agenda.HoraInicio);
-                //command.Parameters.AddWithValue("@HoraFim", agenda.HoraFim);
-                //command.Parameters.AddWithValue("@Complemento", agenda.Complemento);
-                //command.Parameters.ConvertToDbNull();
+                command.Parameters.AddWithValue("@IdServico", servico.IdServico);
+                command.Parameters.AddWithValue("@Status", EnumUtils<Status>.GetValue<string>(servico.Status));
+                command.Parameters.AddWithValue("@Tempo", servico.Tempo);
+                command.Parameters.AddWithValue("@Valor", servico.Valor);
+                command.Parameters.AddWithValue("@Descricao", servico.Descricao);
+
+                command.Parameters.ConvertToDbNull();
                 command.ExecuteNonQuery();
             }
             catch (Exception ex)
             {
-                throw new Exception("Ocorreu um erro ao editar a agenda", ex);
+                throw new Exception("Ocorreu um erro ao editar o servico", ex);
             }
             finally
             {
@@ -120,33 +115,26 @@ namespace SGRepositorio.Repositorio
             }
         }
 
-
-
-
-
         public List<Servico> RecuperarLista(Status status)
         {
             try
             {
-                var list = new List<Servico>();
+                var servicos = new List<Servico>();
+
                 _connection.Conexao.Open();
-                var sql = Resource.Agenda.RecuperarLista;
+                var sql = Resource.Servico.RecuperarListaStatus;
+
+                if (status != Status.NaoInformado)
+                    sql = sql + " where Status = @status";
+
                 var command = new SqlCommand(sql, _connection.Conexao);
                 command.Parameters.AddWithValue("@Status", EnumUtils<Status>.GetValue<string>(status));
-
                 var reader = command.ExecuteReader();
 
+                while (reader.Read())
+                    servicos.Add(new ServicoCreator(reader, "").Create());
 
-                //while (reader.Read())
-                //{
-                //    var agenda = new AgendaCreator(reader, "A",
-                //                      new ClienteCreator(reader, "C", null),
-                //                      new ProfissionalCreator(reader, "P", null)).Create();
-
-                //    agenda.Servicos =
-                //}
-
-                return list;
+                return servicos;
             }
             catch (Exception ex)
             {
@@ -164,24 +152,23 @@ namespace SGRepositorio.Repositorio
             {
                 var resp = new Servico();
                 _connection.Conexao.Open();
-                var sql = Resource.Agenda.Inserir;
+                var sql = Resource.Servico.Recuperar;
                 var command = new SqlCommand(sql, _connection.Conexao);
 
-                //insertCommand.Parameters.AddWithValue("@Nome", cliente.Nome);
+                command.Parameters.AddWithValue("@Idservico", servico.IdServico);
 
-                command.Parameters.ConvertToDbNull();
                 var reader = command.ExecuteReader();
 
                 while (reader.Read())
                 {
-
+                    resp = new ServicoCreator(reader, "").Create();
                 }
 
                 return resp;
             }
             catch (Exception ex)
             {
-                throw new Exception("Ocorreu um erro no Cadastro", ex);
+                throw new Exception("Ocorreu um erro na consulta", ex);
             }
             finally
             {
@@ -194,12 +181,12 @@ namespace SGRepositorio.Repositorio
             try
             {
                 _connection.Conexao.Open();
-                var sql = Resource.Agenda.Inserir;
+                var sql = Resource.Servico.UpdateStatus;
                 var command = new SqlCommand(sql, _connection.Conexao);
 
-                //insertCommand.Parameters.AddWithValue("@Nome", cliente.Nome);
+                command.Parameters.AddWithValue("@IdServico", servico.IdServico);
+                command.Parameters.AddWithValue("@Status", EnumUtils<Status>.GetValue<string>(servico.Status));
 
-                command.Parameters.ConvertToDbNull();
                 command.ExecuteNonQuery();
             }
             catch (Exception ex)

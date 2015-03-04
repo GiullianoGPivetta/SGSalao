@@ -32,7 +32,17 @@ namespace SGRepositorio.Repositorio
                 command.Parameters.AddWithValue("@HoraFinal", agenda.HoraFinal);
                 command.Parameters.AddWithValue("@Complemento", agenda.Complemento);
 
-                command.ExecuteNonQuery();
+                var resp = command.ExecuteScalar();
+
+                if (Convert.ToInt32(resp) > 0)
+                {
+                    agenda.IdAgenda = Convert.ToInt32(resp);
+
+                    foreach (var item in agenda.Servicos)
+                    {
+                        AgendaServicoAdd(agenda.IdAgenda, item.IdServico);
+                    }
+                }
             }
             catch (Exception ex)
             {
@@ -61,7 +71,17 @@ namespace SGRepositorio.Repositorio
                 command.Parameters.AddWithValue("@HoraFinal", agenda.HoraFinal);
                 command.Parameters.AddWithValue("@Complemento", agenda.Complemento);
                 command.Parameters.ConvertToDbNull();
-                command.ExecuteNonQuery();
+
+                if (command.ExecuteNonQuery() > 0)
+                {
+                    AgendaServicoDel(agenda);
+
+                    foreach (var item in agenda.Servicos)
+                    {
+                        AgendaServicoAdd(agenda.IdAgenda, item.IdServico);
+                    }
+                }
+
             }
             catch (Exception ex)
             {
@@ -82,7 +102,7 @@ namespace SGRepositorio.Repositorio
                 var sql = Resource.Agenda.RecuperarLista;
                 var command = new SqlCommand(sql, _connection.Conexao);
                 command.Parameters.AddWithValue("@Data", data);
-               
+
 
                 using (var reader = command.ExecuteReader())
                 {
@@ -163,6 +183,41 @@ namespace SGRepositorio.Repositorio
             finally
             {
                 _connection.Conexao.Close();
+            }
+        }
+
+        public void AgendaServicoDel(Agenda agenda)
+        {
+            try
+            {
+                var sql = Resource.Agenda.AgendaServicoDel;
+                var command = new SqlCommand(sql, _connection.Conexao);
+
+                command.Parameters.AddWithValue("@IdAgenda", agenda.IdAgenda);
+                command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Ocorreu um erro ao Inserir a agenda", ex);
+            }
+        }
+
+        public void AgendaServicoAdd(int IdAgenda, int IdServico)
+        {
+            try
+            {
+
+                var sql = Resource.Agenda.AgendaServicoAdd;
+                var command = new SqlCommand(sql, _connection.Conexao);
+
+                command.Parameters.AddWithValue("@IdAgenda", IdAgenda);
+                command.Parameters.AddWithValue("@IdServico", IdServico);
+
+                command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Ocorreu um erro ao Inserir a agenda", ex);
             }
         }
     }

@@ -83,6 +83,12 @@
     <Compile Include="frmDetalheAgenda.Designer.cs">
       <DependentUpon>frmDetalheAgenda.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmOcorrencia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmOcorrencia.Designer.cs">
+      <DependentUpon>frmOcorrencia.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="usrControls\uConsultaAgenda.cs">
       <SubType>UserControl</SubType>
@@ -92,6 +98,9 @@
     </Compile>
     <EmbeddedResource Include="frmDetalheAgenda.resx">
       <DependentUpon>frmDetalheAgenda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmOcorrencia.resx">
+      <DependentUpon>frmOcorrencia.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">

@@ -117,12 +117,18 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="DeletarServico" xml:space="preserve">
+    <value>delete from ProfissionalServico where IdProfissional = @IdProfissional and IdServico = @IdServico</value>
+  </data>
   <data name="Delete" xml:space="preserve">
     <value>Update Profissional Set Status = @Status where IdProfissional = @IdProfissional</value>
   </data>
   <data name="Inserir" xml:space="preserve">
     <value>INSERT INTO [dbo].[Profissional] ([Nome],[Telefone],[Celular],[Endereco],[Numero],[Cidade],[Bairro],[ParticipaAgenda],[Email],[Nascimento],[Status])
      VALUES(@Nome,@Telefone,@Celular,@Endereco,@Numero,@Cidade,@Bairro,@ParticipaAgenda,@Email,@Nascimento,@Status)</value>
+  </data>
+  <data name="InserirServico" xml:space="preserve">
+    <value>insert into ProfissionalServico (IdProfissional,IdServico) values (@IdProfissional, @IdServico)</value>
   </data>
   <data name="Recuperar" xml:space="preserve">
     <value>SELECT [IdProfissional]

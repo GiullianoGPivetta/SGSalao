@@ -61,6 +61,24 @@ namespace SGRepositorio.Resource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to insert into AgendaServico (IdAgenda,IdServico) values (@IdAgenda,@IdServico).
+        /// </summary>
+        internal static string AgendaServicoAdd {
+            get {
+                return ResourceManager.GetString("AgendaServicoAdd", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to delete from agendaservico where idagenda = @IdAgenda.
+        /// </summary>
+        internal static string AgendaServicoDel {
+            get {
+                return ResourceManager.GetString("AgendaServicoDel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to UPDATE [dbo].[Agenda]
         ///   SET [IdProfissional] = @IdProfissional
         ///      ,[IdCliente] = @IdCliente
@@ -93,7 +111,7 @@ namespace SGRepositorio.Resource {
         ///           ,@HoraInicial
         ///           ,@HoraFinal
         ///           ,@Situacao
-        ///           ,@Complemento).
+        ///           ,@Complemento); select SCOPE_IDENTITY();.
         /// </summary>
         internal static string Inserir {
             get {

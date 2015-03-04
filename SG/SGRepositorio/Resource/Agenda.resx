@@ -117,6 +117,12 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AgendaServicoAdd" xml:space="preserve">
+    <value>insert into AgendaServico (IdAgenda,IdServico) values (@IdAgenda,@IdServico)</value>
+  </data>
+  <data name="AgendaServicoDel" xml:space="preserve">
+    <value>delete from agendaservico where idagenda = @IdAgenda</value>
+  </data>
   <data name="Editar" xml:space="preserve">
     <value>UPDATE [dbo].[Agenda]
    SET [IdProfissional] = @IdProfissional
@@ -144,7 +150,7 @@
            ,@HoraInicial
            ,@HoraFinal
            ,@Situacao
-           ,@Complemento)</value>
+           ,@Complemento); select SCOPE_IDENTITY();</value>
   </data>
   <data name="Recuperar" xml:space="preserve">
     <value>Select	A.IdAgenda as AIdAgenda,

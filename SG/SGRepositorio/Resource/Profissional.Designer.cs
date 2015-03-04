@@ -61,6 +61,15 @@ namespace SGRepositorio.Resource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to delete from ProfissionalServico where IdProfissional = @IdProfissional and IdServico = @IdServico.
+        /// </summary>
+        internal static string DeletarServico {
+            get {
+                return ResourceManager.GetString("DeletarServico", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Update Profissional Set Status = @Status where IdProfissional = @IdProfissional.
         /// </summary>
         internal static string Delete {
@@ -76,6 +85,15 @@ namespace SGRepositorio.Resource {
         internal static string Inserir {
             get {
                 return ResourceManager.GetString("Inserir", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to insert into ProfissionalServico (IdProfissional,IdServico) values (@IdProfissional, @IdServico).
+        /// </summary>
+        internal static string InserirServico {
+            get {
+                return ResourceManager.GetString("InserirServico", resourceCulture);
             }
         }
         

@@ -66,6 +66,10 @@
       <Project>{48119bba-d774-4041-a637-49824ed9b39b}</Project>
       <Name>SGProfissional</Name>
     </ProjectReference>
+    <ProjectReference Include="..\SGServicos\SGServicos.csproj">
+      <Project>{DE4D3D07-ED85-40D8-B03B-EBD28AEA44D5}</Project>
+      <Name>SGServicos</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

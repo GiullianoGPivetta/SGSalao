@@ -8,8 +8,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraScheduler;
+using DevExpress.XtraScheduler.Drawing;
 using SGAgenda.Properties;
 using SGEntidades.Entidades;
+using SGEntidades.Enum;
 using SGServico.Servicos;
 
 namespace SGAgenda.usrControls
@@ -30,6 +32,16 @@ namespace SGAgenda.usrControls
         {
             _agendas = _agendaServico.RecuperarLista(dateNavigator1.DateTime.Date);
             schedulerStorage.Appointments.DataSource = _agendas;
+
+            var cont = _agendas.Count(x => x.Situacao == SituacaoAgenda.Cancelada);
+
+            btOcorrencia.Text = string.Format("Ocorrências ({0})", cont);
+
+            PintaAgenda();
+        }
+
+        private void PintaAgenda()
+        {
         }
 
         private void RecuperarProfissionaisAgenda()
@@ -130,6 +142,22 @@ namespace SGAgenda.usrControls
                 .Append("\n\n Telefone: " + agenda.Cliente.Telefone)
                 .Append("\n\n Celular: " + agenda.Cliente.Celular)
                 .Append("\n\n Serviços: " + servicos).ToString();
+        }
+
+        private void schedulerAgenda_AppointmentViewInfoCustomizing(object sender, AppointmentViewInfoCustomizingEventArgs e)
+        {
+            var aptViewInfo = e.ViewInfo as AppointmentViewInfo;
+
+            if (aptViewInfo.Appointment.End >= DateTime.Now) return;
+
+            aptViewInfo.Appearance.Options.UseBackColor = true;
+            aptViewInfo.Appearance.BackColor = Color.BurlyWood;
+        }
+
+        private void btOcorrencia_Click(object sender, EventArgs e)
+        {
+            //var frm = new frmOcorrencia(dateNavigator1.DateTime);
+            //frm.ShowDialog();
         }
     }
 }

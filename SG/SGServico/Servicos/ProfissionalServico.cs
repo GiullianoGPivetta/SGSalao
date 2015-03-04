@@ -37,5 +37,18 @@ namespace SGServico.Servicos
         {
             _repositorio.Editar(profissional);
         }
+
+        public void DeletarServico(int idProfissional, int idServico)
+        {
+            _repositorio.DeletarServico(idProfissional, idServico);
+        }
+
+        public void InserirServico(int idProfissional, int idServico)
+        {
+            _repositorio.InserirServico(idProfissional, idServico);
+        }
+
+
+
     }
 }

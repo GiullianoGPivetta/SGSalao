@@ -40,6 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entidades\Agenda.cs" />
+    <Compile Include="Entidades\AgendaOcorrencia.cs" />
     <Compile Include="Entidades\Cliente.cs" />
     <Compile Include="Entidades\Profissional.cs" />
     <Compile Include="Entidades\Servico.cs" />

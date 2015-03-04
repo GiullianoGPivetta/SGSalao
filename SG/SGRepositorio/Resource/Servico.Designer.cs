@@ -61,8 +61,35 @@ namespace SGRepositorio.Resource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to insert into Servico (Descricao,Tempo,Valor,Status) values (@Descricao,@Tempo,@Valor,@Status).
+        /// </summary>
+        internal static string Inserir {
+            get {
+                return ResourceManager.GetString("Inserir", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to select idservico, descricao, valor, tempo, status from servico where IdServico = @IdServico.
+        /// </summary>
+        internal static string Recuperar {
+            get {
+                return ResourceManager.GetString("Recuperar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to select idservico, descricao, valor, tempo, status from servico .
+        /// </summary>
+        internal static string RecuperarListaStatus {
+            get {
+                return ResourceManager.GetString("RecuperarListaStatus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to select S.* from Servico S
-        ///inner join AgendaServico ASE ON ASE.IdAgenda = S.IdServico
+        ///inner join AgendaServico ASE ON ASE.IdServico = S.IdServico
         ///where ASE.IdAgenda = @IdAgenda.
         /// </summary>
         internal static string RecuperarServicosAgenda {
@@ -80,6 +107,24 @@ namespace SGRepositorio.Resource {
         internal static string RecuperarServicosPorProfissional {
             get {
                 return ResourceManager.GetString("RecuperarServicosPorProfissional", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to update Servico set Descricao = @Descricao, Status = @Status, Tempo = @Tempo, Valor = @Valor where IdServico = @IdServico.
+        /// </summary>
+        internal static string Update {
+            get {
+                return ResourceManager.GetString("Update", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to update servico set status = @Status where IdServico = @IdServico.
+        /// </summary>
+        internal static string UpdateStatus {
+            get {
+                return ResourceManager.GetString("UpdateStatus", resourceCulture);
             }
         }
     }

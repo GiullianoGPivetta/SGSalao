@@ -20,9 +20,9 @@ D:\Desenvolvimento\SGSalao\SG\SGRepositorio\obj\Debug\SGRepositorio.csprojResolv
 D:\Desenvolvimento\SGSalao\SG\SGRepositorio\obj\Debug\SGRepositorio.Resource.Agenda.resources
 D:\Desenvolvimento\SGSalao\SG\SGRepositorio\obj\Debug\SGRepositorio.Resource.Cliente.resources
 D:\Desenvolvimento\SGSalao\SG\SGRepositorio\obj\Debug\SGRepositorio.Resource.Profissional.resources
+D:\Desenvolvimento\SGSalao\SG\SGRepositorio\obj\Debug\SGRepositorio.Resource.Servico.resources
 D:\Desenvolvimento\SGSalao\SG\SGRepositorio\obj\Debug\SGRepositorio.Resource.UF.resources
 D:\Desenvolvimento\SGSalao\SG\SGRepositorio\obj\Debug\SGRepositorio.Resource.Usuario.resources
 D:\Desenvolvimento\SGSalao\SG\SGRepositorio\obj\Debug\SGRepositorio.csproj.GenerateResource.Cache
 D:\Desenvolvimento\SGSalao\SG\SGRepositorio\obj\Debug\SGRepositorio.dll
 D:\Desenvolvimento\SGSalao\SG\SGRepositorio\obj\Debug\SGRepositorio.pdb
-D:\Desenvolvimento\SGSalao\SG\SGRepositorio\obj\Debug\SGRepositorio.Resource.Servico.resources

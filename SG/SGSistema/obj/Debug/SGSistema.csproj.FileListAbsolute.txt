@@ -1,7 +1,6 @@
 D:\Desenvolvimento\SGSalao\SG\bin\Debug\SGSistema.dll
 D:\Desenvolvimento\SGSalao\SG\bin\Debug\SGSistema.pdb
-D:\Desenvolvimento\SGSalao\SG\SGSistema\obj\Debug\SGSistema.csprojResolveAssemblyReference.cache
-D:\Desenvolvimento\SGSalao\SG\SGSistema\obj\Debug\SGSistema.dll
-D:\Desenvolvimento\SGSalao\SG\SGSistema\obj\Debug\SGSistema.pdb
 D:\Desenvolvimento\SGSalao\bin\Debug\SGSistema.dll
 D:\Desenvolvimento\SGSalao\bin\Debug\SGSistema.pdb
+D:\Desenvolvimento\SGSalao\SG\SGSistema\obj\Debug\SGSistema.dll
+D:\Desenvolvimento\SGSalao\SG\SGSistema\obj\Debug\SGSistema.pdb

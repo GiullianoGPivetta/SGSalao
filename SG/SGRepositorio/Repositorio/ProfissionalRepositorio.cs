@@ -194,6 +194,53 @@ namespace SGRepositorio.Repositorio
                 _connection.Conexao.Close();
             }
         }
+
+        public void DeletarServico(int idProfissional, int idServico)
+        {
+            try
+            {
+                _connection.Conexao.Open();
+                var sql = Resource.Profissional.DeletarServico;
+                var command = new SqlCommand(sql, _connection.Conexao);
+
+                command.Parameters.AddWithValue("@IdProfissional", idProfissional);
+                command.Parameters.AddWithValue("@IdServico", idServico);
+
+                command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Ocorreu um erro ao Deletar o Serviço do profissional", ex);
+            }
+            finally
+            {
+                _connection.Conexao.Close();
+            }
+        }
+
+        public void InserirServico(int idProfissional, int idServico)
+        {
+            try
+            {
+                _connection.Conexao.Open();
+                var sql = Resource.Profissional.InserirServico;
+                var command = new SqlCommand(sql, _connection.Conexao);
+
+                command.Parameters.AddWithValue("@IdProfissional", idProfissional);
+                command.Parameters.AddWithValue("@IdServico", idServico);
+
+                command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Ocorreu um erro ao Inserir o Serviço do profissional", ex);
+            }
+            finally
+            {
+                _connection.Conexao.Close();
+            }
+        }
+
     }
 
 }
