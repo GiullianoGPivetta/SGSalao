@@ -220,5 +220,26 @@ namespace SGRepositorio.Repositorio
                 throw new Exception("Ocorreu um erro ao Inserir a agenda", ex);
             }
         }
+
+        public void GravarAgendaOcorrencia(AgendaOcorrencia agenda)
+        {
+            try
+            {
+                var sql = Resource.Agenda.AgendaServicoDel;
+                var command = new SqlCommand(sql, _connection.Conexao);
+
+                command.Parameters.AddWithValue("@IdAgenda", agenda.Agenda.IdAgenda);
+                command.Parameters.AddWithValue("@IdAgenda", agenda.Agenda.IdAgenda);
+                command.Parameters.AddWithValue("@IdAgenda", agenda.Agenda.IdAgenda);
+                command.Parameters.AddWithValue("@IdAgenda", agenda.Agenda.IdAgenda);
+
+                command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Ocorreu um erro ao Inserir a agenda", ex);
+            }
+        }
+
     }
 }

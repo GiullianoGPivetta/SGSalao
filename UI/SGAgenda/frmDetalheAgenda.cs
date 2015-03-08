@@ -121,14 +121,27 @@ namespace SGAgenda
             {
                 agenda.IdAgenda = _agenda.IdAgenda;
                 _agendaService.Editar(agenda);
+
+                if (EnumUtils<SituacaoAgenda>.FromDescription(cboSituacao.Text) == SituacaoAgenda.Cancelada)
+                {
+                    //TODO Criar tela de Confirmação de cancelamento e adicionar chamada
+
+                    AgendaOcorrencia ocorrencia = new AgendaOcorrencia
+                    {
+                        Agenda = _agenda,
+                        DataHora = DateTime.Now,
+                        //Motivo = just //TODO Justificativa retornada pela tela de confirmação de cancelamento
+                    };
+
+                    _agendaService.GravarAgendaOcorrencia(ocorrencia);
+                }
             }
             else
                 _agendaService.Inserir(agenda);
 
+
             DialogResult = DialogResult.OK;
-
             this.Close();
-
         }
 
         private bool Validar()

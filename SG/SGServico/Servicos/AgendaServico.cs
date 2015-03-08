@@ -33,5 +33,10 @@ namespace SGServico.Servicos
         {
             _repositorio.Editar(agenda);
         }
+
+        public void GravarAgendaOcorrencia(AgendaOcorrencia ocorrencia)
+        {
+            _repositorio.GravarAgendaOcorrencia(ocorrencia);
+        }
     }
 }
