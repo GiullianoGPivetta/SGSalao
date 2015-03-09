@@ -1,0 +1,8 @@
+D:\Desenvolvimento\SGSalao\UI\SGGUIBase\bin\Debug\SGGUIBase.exe.config
+D:\Desenvolvimento\SGSalao\UI\SGGUIBase\bin\Debug\SGGUIBase.exe
+D:\Desenvolvimento\SGSalao\UI\SGGUIBase\bin\Debug\SGGUIBase.pdb
+D:\Desenvolvimento\SGSalao\UI\SGGUIBase\obj\Debug\SGGUIBase.frmBase.resources
+D:\Desenvolvimento\SGSalao\UI\SGGUIBase\obj\Debug\SGGUIBase.Properties.Resources.resources
+D:\Desenvolvimento\SGSalao\UI\SGGUIBase\obj\Debug\SGGUIBase.csproj.GenerateResource.Cache
+D:\Desenvolvimento\SGSalao\UI\SGGUIBase\obj\Debug\SGGUIBase.exe
+D:\Desenvolvimento\SGSalao\UI\SGGUIBase\obj\Debug\SGGUIBase.pdb

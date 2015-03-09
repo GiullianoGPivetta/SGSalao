@@ -71,7 +71,7 @@
       <DependentUpon>fMenu.cs</DependentUpon>
     </Compile>
     <Compile Include="frmLogin.cs">
-      <SubType>Form</SubType>
+      <SubType>form</SubType>
     </Compile>
     <Compile Include="frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
@@ -121,6 +121,10 @@
     <ProjectReference Include="..\SGConfiguracao\SGConfiguracao.csproj">
       <Project>{F18B2F27-98AA-4156-ABB9-027321310565}</Project>
       <Name>SGConfiguracao</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SGGUIBase\SGGUIBase.csproj">
+      <Project>{9A59BB01-D647-4AAF-BC06-7DDD9900D977}</Project>
+      <Name>SGGUIBase</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

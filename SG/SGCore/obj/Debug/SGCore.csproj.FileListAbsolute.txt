@@ -4,6 +4,5 @@ D:\Desenvolvimento\SGSalao\SG\bin\Debug\SGCore.dll
 D:\Desenvolvimento\SGSalao\SG\bin\Debug\SGCore.pdb
 D:\Desenvolvimento\SGSalao\bin\Debug\SGCore.dll
 D:\Desenvolvimento\SGSalao\bin\Debug\SGCore.pdb
-D:\Desenvolvimento\SGSalao\SG\SGCore\obj\Debug\SGCore.csprojResolveAssemblyReference.cache
 D:\Desenvolvimento\SGSalao\SG\SGCore\obj\Debug\SGCore.dll
 D:\Desenvolvimento\SGSalao\SG\SGCore\obj\Debug\SGCore.pdb

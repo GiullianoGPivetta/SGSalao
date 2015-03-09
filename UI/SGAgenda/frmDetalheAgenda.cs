@@ -10,11 +10,12 @@ using SGCliente;
 using SGCore.Utils;
 using SGEntidades.Entidades;
 using SGEntidades.Enum;
+using SGGUIBase;
 using SGServico.Servicos;
 
 namespace SGAgenda
 {
-    public partial class frmDetalheAgenda
+    public partial class frmDetalheAgenda : frmBase
     {
 
         private readonly ProfissionalServico _profissionalService = new ProfissionalServico();
@@ -124,13 +125,14 @@ namespace SGAgenda
 
                 if (EnumUtils<SituacaoAgenda>.FromDescription(cboSituacao.Text) == SituacaoAgenda.Cancelada)
                 {
-                    //TODO Criar tela de Confirmação de cancelamento e adicionar chamada
+                    var just = new frmCancelarAgenda();
+                    if (just.ShowDialog() == DialogResult.Cancel) return;
 
                     AgendaOcorrencia ocorrencia = new AgendaOcorrencia
                     {
                         Agenda = _agenda,
                         DataHora = DateTime.Now,
-                        //Motivo = just //TODO Justificativa retornada pela tela de confirmação de cancelamento
+                        Motivo = just.Justificativa
                     };
 
                     _agendaService.GravarAgendaOcorrencia(ocorrencia);

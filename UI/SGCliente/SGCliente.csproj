@@ -117,6 +117,10 @@
       <Project>{7BF4E391-D9CC-462A-80F5-0AE2497F52D3}</Project>
       <Name>SGServico</Name>
     </ProjectReference>
+    <ProjectReference Include="..\SGGUIBase\SGGUIBase.csproj">
+      <Project>{9A59BB01-D647-4AAF-BC06-7DDD9900D977}</Project>
+      <Name>SGGUIBase</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

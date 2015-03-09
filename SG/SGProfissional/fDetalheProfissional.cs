@@ -11,11 +11,12 @@ using DevExpress.XtraEditors;
 using SGCore.Utils;
 using SGEntidades.Entidades;
 using SGEntidades.Enum;
+using SGGUIBase;
 using SGServico.Servicos;
 
 namespace SGProfissional
 {
-    public partial class fDetalheProfissional : Form
+    public partial class fDetalheProfissional : frmBase
     {
         private readonly Profissional _profissional;
         private readonly ProfissionalServico _profissionalServSevico = new ProfissionalServico();

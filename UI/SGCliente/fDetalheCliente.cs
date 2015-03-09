@@ -10,11 +10,12 @@ using System.Windows.Forms;
 using SGCore.Utils;
 using SGEntidades.Entidades;
 using SGEntidades.Enum;
+using SGGUIBase;
 using SGServico.Servicos;
 
 namespace SGCliente
 {
-    public partial class fDetalheCliente : Form
+    public partial class fDetalheCliente : frmBase
     {
         private readonly Cliente _cliente;
         private readonly ClienteServico _clienteServico = new ClienteServico();

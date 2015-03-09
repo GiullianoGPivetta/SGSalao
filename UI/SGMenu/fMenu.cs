@@ -10,11 +10,12 @@ using System.Windows.Forms;
 using SGAgenda.usrControls;
 using SGCliente;
 using SGConfiguracao;
+using SGGUIBase;
 
 namespace SGMenu
 {
-    public partial class fMenu : Form
-    {
+    public partial class fMenu : frmBase
+        {
         private static readonly uConsultaAgenda _agenda = new uConsultaAgenda { Dock = DockStyle.Fill };
         private static readonly usrConsultaCliente _clientes = new usrConsultaCliente { Dock = DockStyle.Fill };
 

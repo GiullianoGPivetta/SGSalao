@@ -1,9 +1,10 @@
 ﻿using System.Windows.Forms;
 using DevExpress.XtraScheduler;
+using SGGUIBase;
 
 namespace SGAgenda
 {
-    partial class frmDetalheAgenda : Form
+    partial class frmDetalheAgenda : frmBase
     {
         /// <summary>
         /// Required designer variable.

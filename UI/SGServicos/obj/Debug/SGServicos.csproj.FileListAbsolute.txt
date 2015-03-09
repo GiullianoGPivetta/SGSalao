@@ -17,3 +17,5 @@ D:\Desenvolvimento\SGSalao\UI\SGServicos\bin\Debug\SGCore.pdb
 D:\Desenvolvimento\SGSalao\UI\SGServicos\bin\Debug\SGRepositorio.pdb
 D:\Desenvolvimento\SGSalao\UI\SGServicos\obj\Debug\SGServicos.csprojResolveAssemblyReference.cache
 D:\Desenvolvimento\SGSalao\UI\SGServicos\obj\Debug\SGServicos.frmServicoDetalhe.resources
+D:\Desenvolvimento\SGSalao\UI\SGServicos\bin\Debug\SGGUIBase.exe
+D:\Desenvolvimento\SGSalao\UI\SGServicos\bin\Debug\SGGUIBase.pdb

@@ -7,10 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using SGGUIBase;
 
 namespace SGAgenda
 {
-    public partial class frmOcorrencia : Form
+    public partial class frmOcorrencia : frmBase
     {
         private DateTime _data;
 

@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Windows.Forms;
+using SGGUIBase;
 
 namespace SGMenu
 {
-    public partial class frmLogin : Form
+    public partial class frmLogin : frmBase
     {
         public frmLogin()
         {

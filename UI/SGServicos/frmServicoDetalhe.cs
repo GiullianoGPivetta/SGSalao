@@ -11,11 +11,12 @@ using System.Windows.Forms;
 using SGCore.Utils;
 using SGEntidades.Entidades;
 using SGEntidades.Enum;
+using SGGUIBase;
 using SGServico.Servicos;
 
 namespace SGServicos
 {
-    public partial class frmServicoDetalhe : Form
+    public partial class frmServicoDetalhe : frmBase
     {
         private Servico _servico;
         private ServicoServico _service = new ServicoServico();

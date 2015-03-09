@@ -8,10 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using SGEntidades.Entidades;
+using SGGUIBase;
 
 namespace SGCliente
 {
-    public partial class frmConsultaCliente : Form
+    public partial class frmConsultaCliente : frmBase
     {
         public Cliente _clienteSelecionado;
 
