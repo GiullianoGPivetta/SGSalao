@@ -152,6 +152,9 @@
            ,@Situacao
            ,@Complemento); select SCOPE_IDENTITY();</value>
   </data>
+  <data name="InserirOcorerncia" xml:space="preserve">
+    <value>insert into AgendaOcorrencia (IdUsuario,IdAgenda,DataHora,Motivo) values (@IdUsuario,@IdAgenda,@DataHora,@Motivo)</value>
+  </data>
   <data name="Recuperar" xml:space="preserve">
     <value>Select	A.IdAgenda as AIdAgenda,
 		A.Data as AData,

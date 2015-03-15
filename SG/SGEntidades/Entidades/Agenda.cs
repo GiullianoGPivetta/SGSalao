@@ -21,8 +21,10 @@ namespace SGEntidades.Entidades
         public string SituacaoDescricao => EnumUtils<SituacaoAgenda>.GetDescription(Situacao);
         public List<Servico> Servicos { get; set; }
 
+        public string NomeCliente => Cliente.Nome;
+
         public string AgendaDescricao
-            => string.Format("{0} - {1}", Cliente.Nome, ListaServicos);
+            => string.Format("Serviços: {1}\nValor: {2:c}", Cliente.Nome, ListaServicos, Servicos.Sum(x => x.Valor));
 
         private string ListaServicos
         {

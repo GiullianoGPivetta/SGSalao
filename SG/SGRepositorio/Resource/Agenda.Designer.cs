@@ -120,6 +120,15 @@ namespace SGRepositorio.Resource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to insert into AgendaOcorrencia (IdUsuario,IdAgenda,DataHora,Motivo) values (@IdUsuario,@IdAgenda,@DataHora,@Motivo).
+        /// </summary>
+        internal static string InserirOcorerncia {
+            get {
+                return ResourceManager.GetString("InserirOcorerncia", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Select	A.IdAgenda as AIdAgenda,
         ///		A.Data as AData,
         ///		A.HoraFinal as AHoraFinal,

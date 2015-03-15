@@ -77,6 +77,16 @@ namespace SGAgenda
 
             gcServicos.DataSource = serv;
             gcServicos.RefreshDataSource();
+
+            if (_agenda.Situacao != SituacaoAgenda.Finalizada) return;
+
+            btGravar.Enabled = false;
+            cboSituacao.Enabled = false;
+            gcServicos.Enabled = false;
+            bteCliente.Enabled = false;
+            cboProfissional.Enabled = false;
+            txtComentario.Enabled = false;
+            btCancelar.Enabled = true;
         }
 
         private void InicializaEdicao()
@@ -84,7 +94,7 @@ namespace SGAgenda
             _cliente = _agenda.Cliente;
             bteCliente.Text = _cliente.Nome;
             cboSituacao.Enabled = true;
-            cboSituacao.SelectedText = EnumUtils<SituacaoAgenda>.GetDescription(_agenda.Situacao);
+            cboSituacao.EditValue = EnumUtils<SituacaoAgenda>.GetDescription(_agenda.Situacao);
         }
 
         private void ConsultaProcedimentosProfissional()

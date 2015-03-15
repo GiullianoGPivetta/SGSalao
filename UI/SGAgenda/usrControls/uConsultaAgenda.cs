@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DevExpress.Utils;
 using DevExpress.XtraScheduler;
 using DevExpress.XtraScheduler.Drawing;
 using SGAgenda.Properties;
@@ -31,7 +32,7 @@ namespace SGAgenda.usrControls
         private void MontaHorarios()
         {
             _agendas = _agendaServico.RecuperarLista(dateNavigator1.DateTime.Date);
-            schedulerStorage.Appointments.DataSource = _agendas;
+            schedulerStorage.Appointments.DataSource = _agendas.Where(x => x.Situacao != SituacaoAgenda.Cancelada);
 
             var cont = _agendas.Count(x => x.Situacao == SituacaoAgenda.Cancelada);
 
@@ -151,13 +152,39 @@ namespace SGAgenda.usrControls
             if (aptViewInfo.Appointment.End >= DateTime.Now) return;
 
             aptViewInfo.Appearance.Options.UseBackColor = true;
-            aptViewInfo.Appearance.BackColor = Color.BurlyWood;
+
+            var agenda =
+                _agendas.First(x => x.IdAgenda == ((Agenda)aptViewInfo.Appointment.GetRow(schedulerStorage)).IdAgenda);
+
+            aptViewInfo.Appearance.BackColor = agenda.Situacao == SituacaoAgenda.Finalizada ? Color.LightSkyBlue : Color.BurlyWood;
         }
 
         private void btOcorrencia_Click(object sender, EventArgs e)
         {
             //var frm = new frmOcorrencia(dateNavigator1.DateTime);
             //frm.ShowDialog();
+        }
+
+        private void pictureEdit1_MouseEnter(object sender, EventArgs e)
+        {
+            panelLegenda.Visible = true;
+        }
+
+        private void pictureEdit1_MouseLeave(object sender, EventArgs e)
+        {
+            panelLegenda.Visible = false;
+        }
+
+        private void toolTipController_BeforeShow(object sender, DevExpress.Utils.ToolTipControllerShowEventArgs e)
+        {
+            ToolTipController controller = sender as ToolTipController;
+
+           
+            AppointmentViewInfo aptViewInfo = controller.ActiveObject as AppointmentViewInfo;
+            if (aptViewInfo == null) return;         
+           
+            e.Title = aptViewInfo.Appointment.Subject;
+            e.ToolTip = string.Format("{0}", aptViewInfo.Appointment.Description);
         }
     }
 }

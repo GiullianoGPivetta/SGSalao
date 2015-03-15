@@ -339,6 +339,7 @@ namespace SGAgenda
             this.MinimumSize = new System.Drawing.Size(410, 411);
             this.Name = "frmDetalheAgenda";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Detalhe da Agenda";
             this.Load += new System.EventHandler(this.frmDetalheAgenda_Load);
             ((System.ComponentModel.ISupportInitialize)(this.cboSituacao.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtComentario.Properties)).EndInit();

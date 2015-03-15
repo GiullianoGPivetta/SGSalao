@@ -225,19 +225,25 @@ namespace SGRepositorio.Repositorio
         {
             try
             {
-                var sql = Resource.Agenda.AgendaServicoDel;
+                var sql = Resource.Agenda.InserirOcorerncia;
                 var command = new SqlCommand(sql, _connection.Conexao);
 
+                _connection.Conexao.Open();
+
+                command.Parameters.AddWithValue("@Idusuario", 1);
                 command.Parameters.AddWithValue("@IdAgenda", agenda.Agenda.IdAgenda);
-                command.Parameters.AddWithValue("@IdAgenda", agenda.Agenda.IdAgenda);
-                command.Parameters.AddWithValue("@IdAgenda", agenda.Agenda.IdAgenda);
-                command.Parameters.AddWithValue("@IdAgenda", agenda.Agenda.IdAgenda);
+                command.Parameters.AddWithValue("@DataHora", DateTime.Now);
+                command.Parameters.AddWithValue("@Motivo", agenda.Motivo);
 
                 command.ExecuteNonQuery();
             }
             catch (Exception ex)
             {
-                throw new Exception("Ocorreu um erro ao Inserir a agenda", ex);
+                throw new Exception("Ocorreu um erro ao gravar a ocorrencia", ex);
+            }
+            finally
+            {
+                _connection.Conexao.Close();
             }
         }
 

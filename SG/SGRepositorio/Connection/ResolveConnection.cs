@@ -1,4 +1,5 @@
-﻿using System.Data.SqlClient;
+﻿using System;
+using System.Data.SqlClient;
 using System.Net.Sockets;
 using Microsoft.Win32;
 
@@ -10,10 +11,15 @@ namespace SGRepositorio.Connection
 
         public static string Connection()
         {
-            //var registryKey = Registry.LocalMachine.OpenSubKey(@"MNSalao");
-            //return registryKey.GetValue("ConnectionString").ToString();
+            var registryKey = Registry.LocalMachine.OpenSubKey(@"Software");
 
-            return "Server = NOTE-GIU; Database = DBSalao; User Id = sa; Password = 190990";
+            var key = registryKey.OpenSubKey(@"MNSalao");
+            if (key == null)
+                throw new Exception("Não foi possível recuperar as configurações do sistema no registro do windows.");
+
+            return key.GetValue("ConnectionString").ToString();
+
+            //return "Server = NOTE-GIU; Database = DBSalao; User Id = sa; Password = 190990";
         }
 
 
