@@ -1,0 +1,6 @@
+D:\Desenvolvimento\SGSalao\bin\Release\SGServico.dll.config
+D:\Desenvolvimento\SGSalao\bin\Release\SGServico.dll
+D:\Desenvolvimento\SGSalao\bin\Release\SGServico.pdb
+D:\Desenvolvimento\SGSalao\SG\SGServico\obj\Release\SGServico.csprojResolveAssemblyReference.cache
+D:\Desenvolvimento\SGSalao\SG\SGServico\obj\Release\SGServico.dll
+D:\Desenvolvimento\SGSalao\SG\SGServico\obj\Release\SGServico.pdb

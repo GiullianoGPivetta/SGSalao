@@ -1,0 +1,13 @@
+D:\Desenvolvimento\SGSalao\bin\Release\SGRepositorio.dll.config
+D:\Desenvolvimento\SGSalao\bin\Release\SGRepositorio.dll
+D:\Desenvolvimento\SGSalao\bin\Release\SGRepositorio.pdb
+D:\Desenvolvimento\SGSalao\SG\SGRepositorio\obj\Release\SGRepositorio.csprojResolveAssemblyReference.cache
+D:\Desenvolvimento\SGSalao\SG\SGRepositorio\obj\Release\SGRepositorio.Resource.Agenda.resources
+D:\Desenvolvimento\SGSalao\SG\SGRepositorio\obj\Release\SGRepositorio.Resource.Cliente.resources
+D:\Desenvolvimento\SGSalao\SG\SGRepositorio\obj\Release\SGRepositorio.Resource.Profissional.resources
+D:\Desenvolvimento\SGSalao\SG\SGRepositorio\obj\Release\SGRepositorio.Resource.Servico.resources
+D:\Desenvolvimento\SGSalao\SG\SGRepositorio\obj\Release\SGRepositorio.Resource.UF.resources
+D:\Desenvolvimento\SGSalao\SG\SGRepositorio\obj\Release\SGRepositorio.Resource.Usuario.resources
+D:\Desenvolvimento\SGSalao\SG\SGRepositorio\obj\Release\SGRepositorio.csproj.GenerateResource.Cache
+D:\Desenvolvimento\SGSalao\SG\SGRepositorio\obj\Release\SGRepositorio.dll
+D:\Desenvolvimento\SGSalao\SG\SGRepositorio\obj\Release\SGRepositorio.pdb

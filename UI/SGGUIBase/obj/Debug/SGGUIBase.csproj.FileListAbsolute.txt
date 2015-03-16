@@ -6,3 +6,4 @@ D:\Desenvolvimento\SGSalao\UI\SGGUIBase\obj\Debug\SGGUIBase.Properties.Resources
 D:\Desenvolvimento\SGSalao\UI\SGGUIBase\obj\Debug\SGGUIBase.csproj.GenerateResource.Cache
 D:\Desenvolvimento\SGSalao\UI\SGGUIBase\obj\Debug\SGGUIBase.exe
 D:\Desenvolvimento\SGSalao\UI\SGGUIBase\obj\Debug\SGGUIBase.pdb
+D:\Desenvolvimento\SGSalao\UI\SGGUIBase\obj\Debug\SGGUIBase.csprojResolveAssemblyReference.cache

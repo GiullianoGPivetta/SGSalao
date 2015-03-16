@@ -1,0 +1,11 @@
+D:\Desenvolvimento\SGSalao\UI\SGMenu\obj\Release\SGMenu.csprojResolveAssemblyReference.cache
+D:\Desenvolvimento\SGSalao\UI\SGMenu\obj\Release\SGMenu.fMenu.resources
+D:\Desenvolvimento\SGSalao\UI\SGMenu\obj\Release\SGMenu.frmLogin.resources
+D:\Desenvolvimento\SGSalao\UI\SGMenu\obj\Release\SGMenu.Properties.Resources.resources
+D:\Desenvolvimento\SGSalao\UI\SGMenu\obj\Release\SGMenu.csproj.GenerateResource.Cache
+D:\Desenvolvimento\SGSalao\bin\Release\MN Centro de Beleza.exe.config
+D:\Desenvolvimento\SGSalao\bin\Release\MN Centro de Beleza.exe
+D:\Desenvolvimento\SGSalao\bin\Release\MN Centro de Beleza.pdb
+D:\Desenvolvimento\SGSalao\UI\SGMenu\obj\Release\MN Centro de Beleza.exe.licenses
+D:\Desenvolvimento\SGSalao\UI\SGMenu\obj\Release\MN Centro de Beleza.exe
+D:\Desenvolvimento\SGSalao\UI\SGMenu\obj\Release\MN Centro de Beleza.pdb

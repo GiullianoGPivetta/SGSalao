@@ -1,0 +1,7 @@
+D:\Desenvolvimento\SGSalao\bin\Release\SGDistribuidor.dll.config
+D:\Desenvolvimento\SGSalao\bin\Release\SGDistribuidor.dll
+D:\Desenvolvimento\SGSalao\bin\Release\SGDistribuidor.pdb
+D:\Desenvolvimento\SGSalao\UI\SGDistribuidor\obj\Release\SGDistribuidor.Properties.Resources.resources
+D:\Desenvolvimento\SGSalao\UI\SGDistribuidor\obj\Release\SGDistribuidor.csproj.GenerateResource.Cache
+D:\Desenvolvimento\SGSalao\UI\SGDistribuidor\obj\Release\SGDistribuidor.dll
+D:\Desenvolvimento\SGSalao\UI\SGDistribuidor\obj\Release\SGDistribuidor.pdb

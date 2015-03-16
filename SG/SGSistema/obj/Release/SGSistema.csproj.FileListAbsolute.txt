@@ -1,0 +1,4 @@
+D:\Desenvolvimento\SGSalao\bin\Release\SGSistema.dll
+D:\Desenvolvimento\SGSalao\bin\Release\SGSistema.pdb
+D:\Desenvolvimento\SGSalao\SG\SGSistema\obj\Release\SGSistema.dll
+D:\Desenvolvimento\SGSalao\SG\SGSistema\obj\Release\SGSistema.pdb

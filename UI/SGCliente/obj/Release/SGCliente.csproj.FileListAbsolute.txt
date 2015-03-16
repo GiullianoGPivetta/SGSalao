@@ -1,0 +1,12 @@
+D:\Desenvolvimento\SGSalao\bin\Release\SGCliente.dll.config
+D:\Desenvolvimento\SGSalao\bin\Release\SGCliente.dll
+D:\Desenvolvimento\SGSalao\bin\Release\SGCliente.pdb
+D:\Desenvolvimento\SGSalao\UI\SGCliente\obj\Release\SGCliente.csprojResolveAssemblyReference.cache
+D:\Desenvolvimento\SGSalao\UI\SGCliente\obj\Release\SGCliente.fDetalheCliente.resources
+D:\Desenvolvimento\SGSalao\UI\SGCliente\obj\Release\SGCliente.frmConsultaCliente.resources
+D:\Desenvolvimento\SGSalao\UI\SGCliente\obj\Release\SGCliente.Properties.Resources.resources
+D:\Desenvolvimento\SGSalao\UI\SGCliente\obj\Release\SGCliente.usrConsultaCliente.resources
+D:\Desenvolvimento\SGSalao\UI\SGCliente\obj\Release\SGCliente.csproj.GenerateResource.Cache
+D:\Desenvolvimento\SGSalao\UI\SGCliente\obj\Release\SGCliente.dll.licenses
+D:\Desenvolvimento\SGSalao\UI\SGCliente\obj\Release\SGCliente.dll
+D:\Desenvolvimento\SGSalao\UI\SGCliente\obj\Release\SGCliente.pdb

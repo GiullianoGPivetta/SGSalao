@@ -1,0 +1,13 @@
+D:\Desenvolvimento\SGSalao\bin\Release\SGAgenda.dll.config
+D:\Desenvolvimento\SGSalao\bin\Release\SGAgenda.dll
+D:\Desenvolvimento\SGSalao\bin\Release\SGAgenda.pdb
+D:\Desenvolvimento\SGSalao\UI\SGAgenda\obj\Release\SGAgenda.csprojResolveAssemblyReference.cache
+D:\Desenvolvimento\SGSalao\UI\SGAgenda\obj\Release\SGAgenda.frmCancelarAgenda.resources
+D:\Desenvolvimento\SGSalao\UI\SGAgenda\obj\Release\SGAgenda.frmDetalheAgenda.resources
+D:\Desenvolvimento\SGSalao\UI\SGAgenda\obj\Release\SGAgenda.frmOcorrencia.resources
+D:\Desenvolvimento\SGSalao\UI\SGAgenda\obj\Release\SGAgenda.Properties.Resources.resources
+D:\Desenvolvimento\SGSalao\UI\SGAgenda\obj\Release\SGAgenda.usrControls.uConsultaAgenda.resources
+D:\Desenvolvimento\SGSalao\UI\SGAgenda\obj\Release\SGAgenda.csproj.GenerateResource.Cache
+D:\Desenvolvimento\SGSalao\UI\SGAgenda\obj\Release\SGAgenda.dll.licenses
+D:\Desenvolvimento\SGSalao\UI\SGAgenda\obj\Release\SGAgenda.dll
+D:\Desenvolvimento\SGSalao\UI\SGAgenda\obj\Release\SGAgenda.pdb

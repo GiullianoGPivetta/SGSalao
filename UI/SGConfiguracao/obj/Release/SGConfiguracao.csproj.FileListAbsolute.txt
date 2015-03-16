@@ -1,0 +1,7 @@
+D:\Desenvolvimento\SGSalao\bin\Release\SGConfiguracao.dll
+D:\Desenvolvimento\SGSalao\bin\Release\SGConfiguracao.pdb
+D:\Desenvolvimento\SGSalao\UI\SGConfiguracao\obj\Release\SGConfiguracao.csprojResolveAssemblyReference.cache
+D:\Desenvolvimento\SGSalao\UI\SGConfiguracao\obj\Release\SGConfiguracao.usrGerenciamento.resources
+D:\Desenvolvimento\SGSalao\UI\SGConfiguracao\obj\Release\SGConfiguracao.csproj.GenerateResource.Cache
+D:\Desenvolvimento\SGSalao\UI\SGConfiguracao\obj\Release\SGConfiguracao.dll
+D:\Desenvolvimento\SGSalao\UI\SGConfiguracao\obj\Release\SGConfiguracao.pdb

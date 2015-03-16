@@ -1,0 +1,11 @@
+D:\Desenvolvimento\SGSalao\bin\Release\SGProfissional.dll.config
+D:\Desenvolvimento\SGSalao\bin\Release\SGProfissional.dll
+D:\Desenvolvimento\SGSalao\bin\Release\SGProfissional.pdb
+D:\Desenvolvimento\SGSalao\SG\SGProfissional\obj\Release\SGProfissional.csprojResolveAssemblyReference.cache
+D:\Desenvolvimento\SGSalao\SG\SGProfissional\obj\Release\SGProfissional.fDetalheProfissional.resources
+D:\Desenvolvimento\SGSalao\SG\SGProfissional\obj\Release\SGProfissional.Properties.Resources.resources
+D:\Desenvolvimento\SGSalao\SG\SGProfissional\obj\Release\SGProfissional.usrConsultaProfissional.resources
+D:\Desenvolvimento\SGSalao\SG\SGProfissional\obj\Release\SGProfissional.csproj.GenerateResource.Cache
+D:\Desenvolvimento\SGSalao\SG\SGProfissional\obj\Release\SGProfissional.dll.licenses
+D:\Desenvolvimento\SGSalao\SG\SGProfissional\obj\Release\SGProfissional.dll
+D:\Desenvolvimento\SGSalao\SG\SGProfissional\obj\Release\SGProfissional.pdb

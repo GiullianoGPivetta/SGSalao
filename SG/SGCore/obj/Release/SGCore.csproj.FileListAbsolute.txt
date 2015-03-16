@@ -1,0 +1,4 @@
+D:\Desenvolvimento\SGSalao\bin\Release\SGCore.dll
+D:\Desenvolvimento\SGSalao\bin\Release\SGCore.pdb
+D:\Desenvolvimento\SGSalao\SG\SGCore\obj\Release\SGCore.dll
+D:\Desenvolvimento\SGSalao\SG\SGCore\obj\Release\SGCore.pdb

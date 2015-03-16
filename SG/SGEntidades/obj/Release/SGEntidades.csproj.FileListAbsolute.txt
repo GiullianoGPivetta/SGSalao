@@ -1,0 +1,5 @@
+D:\Desenvolvimento\SGSalao\bin\Release\SGEntidades.dll
+D:\Desenvolvimento\SGSalao\bin\Release\SGEntidades.pdb
+D:\Desenvolvimento\SGSalao\SG\SGEntidades\obj\Release\SGEntidades.csprojResolveAssemblyReference.cache
+D:\Desenvolvimento\SGSalao\SG\SGEntidades\obj\Release\SGEntidades.dll
+D:\Desenvolvimento\SGSalao\SG\SGEntidades\obj\Release\SGEntidades.pdb
