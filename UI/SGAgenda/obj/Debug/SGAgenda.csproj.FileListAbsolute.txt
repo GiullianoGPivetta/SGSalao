@@ -16,6 +16,9 @@ D:\Desenvolvimento\SGSalao\UI\SGAgenda\bin\Debug\SGCore.pdb
 D:\Desenvolvimento\SGSalao\SG\bin\Debug\SGAgenda.dll.config
 D:\Desenvolvimento\SGSalao\SG\bin\Debug\SGAgenda.dll
 D:\Desenvolvimento\SGSalao\SG\bin\Debug\SGAgenda.pdb
+D:\Desenvolvimento\SGSalao\bin\Debug\SGAgenda.dll.config
+D:\Desenvolvimento\SGSalao\bin\Debug\SGAgenda.dll
+D:\Desenvolvimento\SGSalao\bin\Debug\SGAgenda.pdb
 D:\Desenvolvimento\SGSalao\UI\SGAgenda\obj\Debug\SGAgenda.csprojResolveAssemblyReference.cache
 D:\Desenvolvimento\SGSalao\UI\SGAgenda\obj\Debug\SGAgenda.frmCancelarAgenda.resources
 D:\Desenvolvimento\SGSalao\UI\SGAgenda\obj\Debug\SGAgenda.frmDetalheAgenda.resources
@@ -24,8 +27,5 @@ D:\Desenvolvimento\SGSalao\UI\SGAgenda\obj\Debug\SGAgenda.Properties.Resources.r
 D:\Desenvolvimento\SGSalao\UI\SGAgenda\obj\Debug\SGAgenda.usrControls.uConsultaAgenda.resources
 D:\Desenvolvimento\SGSalao\UI\SGAgenda\obj\Debug\SGAgenda.csproj.GenerateResource.Cache
 D:\Desenvolvimento\SGSalao\UI\SGAgenda\obj\Debug\SGAgenda.dll.licenses
-D:\Desenvolvimento\SGSalao\bin\Debug\SGAgenda.dll.config
-D:\Desenvolvimento\SGSalao\bin\Debug\SGAgenda.dll
-D:\Desenvolvimento\SGSalao\bin\Debug\SGAgenda.pdb
 D:\Desenvolvimento\SGSalao\UI\SGAgenda\obj\Debug\SGAgenda.dll
 D:\Desenvolvimento\SGSalao\UI\SGAgenda\obj\Debug\SGAgenda.pdb

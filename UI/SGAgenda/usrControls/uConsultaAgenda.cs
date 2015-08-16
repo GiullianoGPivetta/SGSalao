@@ -161,8 +161,8 @@ namespace SGAgenda.usrControls
 
         private void btOcorrencia_Click(object sender, EventArgs e)
         {
-            //var frm = new frmOcorrencia(dateNavigator1.DateTime);
-            //frm.ShowDialog();
+            var frm = new frmOcorrencia(dateNavigator1.DateTime);
+            frm.ShowDialog();
         }
 
         private void pictureEdit1_MouseEnter(object sender, EventArgs e)

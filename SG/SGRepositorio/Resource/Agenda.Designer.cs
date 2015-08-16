@@ -177,5 +177,30 @@ namespace SGRepositorio.Resource {
                 return ResourceManager.GetString("RecuperarLista", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to select	Agenda.data as AData,
+        ///Agenda.HoraInicial as AHoraInicial,
+        ///agenda.HoraFinal as AHoraFinal,
+        ///agenda.idagenda as AIdAgenda, 
+        ///
+        ///		profissional.nome as PNome,
+        ///		profissional.IdProfissional as PIdProfissional, 
+        ///		
+        ///		cliente.nome as CNome, 
+        ///		cliente.idcliente as CIdCliente,
+        ///		
+        ///		agendaocorrencia.Motivo as OMotivo,
+        ///		agendaocorrencia.IdOcorrencia as OIdOcorrencia,
+        ///		agendaocorrencia.DataHora as ODataHora 
+        ///		
+        ///from agendaocorrencia
+        ///inner join agenda on agenda.idagenda = agendaocorrencia.idagenda [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string RecuperarListaOcorrencias {
+            get {
+                return ResourceManager.GetString("RecuperarListaOcorrencias", resourceCulture);
+            }
+        }
     }
 }

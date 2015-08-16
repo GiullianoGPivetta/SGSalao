@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using DevExpress.XtraGrid.Columns;
 using SGEntidades.Entidades;
 using SGProfissional.Properties;
 using SGServico.Servicos;
@@ -96,6 +97,14 @@ namespace SGProfissional
                 if (frm.ShowDialog() == DialogResult.OK)
                     ConsultaLista();
             }
+        }
+
+        private void txtProfissional_EditValueChanged(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(txtProfissional.Text))
+                gvProfissional.Columns["Nome"].FilterInfo = new ColumnFilterInfo(string.Format("[Nome] LIKE '{0}%'", txtProfissional.Text));
+            else
+                gvProfissional.ClearColumnsFilter();
         }
     }
 }

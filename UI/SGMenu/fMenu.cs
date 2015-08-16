@@ -86,6 +86,11 @@ namespace SGMenu
                 gerenc.Focus();
             }
         }
+
+        private void brRelatorio_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 
 

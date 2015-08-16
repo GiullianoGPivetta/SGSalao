@@ -44,7 +44,7 @@
             this.colBairro = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colCidade = new DevExpress.XtraGrid.Columns.GridColumn();
             this.btConsultar = new DevExpress.XtraEditors.SimpleButton();
-            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
+            this.txtCliente = new DevExpress.XtraEditors.TextEdit();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -61,7 +61,7 @@
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gcClientes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvClientes)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCliente.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
@@ -84,7 +84,7 @@
             this.layoutControl1.Controls.Add(this.btNovo);
             this.layoutControl1.Controls.Add(this.gcClientes);
             this.layoutControl1.Controls.Add(this.btConsultar);
-            this.layoutControl1.Controls.Add(this.textEdit1);
+            this.layoutControl1.Controls.Add(this.txtCliente);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl1.Location = new System.Drawing.Point(0, 0);
             this.layoutControl1.Name = "layoutControl1";
@@ -228,16 +228,17 @@
             this.btConsultar.Text = "Consultar";
             this.btConsultar.Click += new System.EventHandler(this.btConsultar_Click);
             // 
-            // textEdit1
+            // txtCliente
             // 
-            this.textEdit1.Location = new System.Drawing.Point(43, 3);
-            this.textEdit1.Name = "textEdit1";
-            this.textEdit1.Properties.Appearance.ForeColor = System.Drawing.Color.Black;
-            this.textEdit1.Properties.Appearance.Options.UseForeColor = true;
-            this.textEdit1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-            this.textEdit1.Size = new System.Drawing.Size(306, 20);
-            this.textEdit1.StyleController = this.layoutControl1;
-            this.textEdit1.TabIndex = 4;
+            this.txtCliente.Location = new System.Drawing.Point(43, 3);
+            this.txtCliente.Name = "txtCliente";
+            this.txtCliente.Properties.Appearance.ForeColor = System.Drawing.Color.Black;
+            this.txtCliente.Properties.Appearance.Options.UseForeColor = true;
+            this.txtCliente.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+            this.txtCliente.Size = new System.Drawing.Size(306, 20);
+            this.txtCliente.StyleController = this.layoutControl1;
+            this.txtCliente.TabIndex = 4;
+            this.txtCliente.EditValueChanged += new System.EventHandler(this.txtCliente_EditValueChanged);
             // 
             // layoutControlGroup1
             // 
@@ -261,7 +262,7 @@
             // 
             this.layoutControlItem1.AppearanceItemCaption.ForeColor = System.Drawing.Color.Black;
             this.layoutControlItem1.AppearanceItemCaption.Options.UseForeColor = true;
-            this.layoutControlItem1.Control = this.textEdit1;
+            this.layoutControlItem1.Control = this.txtCliente;
             this.layoutControlItem1.CustomizationFormText = "Cliente:";
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.MaxSize = new System.Drawing.Size(0, 26);
@@ -416,7 +417,7 @@
             this.layoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gcClientes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvClientes)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCliente.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
@@ -443,7 +444,7 @@
         private DevExpress.XtraGrid.GridControl gcClientes;
         private DevExpress.XtraGrid.Views.Grid.GridView gvClientes;
         private DevExpress.XtraEditors.SimpleButton btConsultar;
-        private DevExpress.XtraEditors.TextEdit textEdit1;
+        private DevExpress.XtraEditors.TextEdit txtCliente;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;

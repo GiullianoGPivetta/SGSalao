@@ -7,8 +7,8 @@ D:\Desenvolvimento\SGSalao\SG\bin\Debug\SGDistribuidor.pdb
 D:\Desenvolvimento\SGSalao\bin\Debug\SGDistribuidor.dll.config
 D:\Desenvolvimento\SGSalao\bin\Debug\SGDistribuidor.dll
 D:\Desenvolvimento\SGSalao\bin\Debug\SGDistribuidor.pdb
+D:\Desenvolvimento\SGSalao\UI\SGDistribuidor\obj\Debug\SGDistribuidor.csprojResolveAssemblyReference.cache
 D:\Desenvolvimento\SGSalao\UI\SGDistribuidor\obj\Debug\SGDistribuidor.Properties.Resources.resources
 D:\Desenvolvimento\SGSalao\UI\SGDistribuidor\obj\Debug\SGDistribuidor.csproj.GenerateResource.Cache
 D:\Desenvolvimento\SGSalao\UI\SGDistribuidor\obj\Debug\SGDistribuidor.dll
 D:\Desenvolvimento\SGSalao\UI\SGDistribuidor\obj\Debug\SGDistribuidor.pdb
-D:\Desenvolvimento\SGSalao\UI\SGDistribuidor\obj\Debug\SGDistribuidor.csprojResolveAssemblyReference.cache

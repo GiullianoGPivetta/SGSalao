@@ -19,7 +19,7 @@ namespace SGRepositorio.Creator
         {
             _dt = dataReader;
             _nome = alias;
-            _objects = objects;
+            _objects = include;
         }
 
         public Cliente Create()

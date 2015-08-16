@@ -8,11 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using SGGUIBase;
+using SGServico.Servicos;
 
 namespace SGAgenda
 {
     public partial class frmOcorrencia : frmBase
     {
+        private AgendaServico _servicoAgenda = new AgendaServico();
+
         private DateTime _data;
 
 
@@ -26,6 +29,10 @@ namespace SGAgenda
 
         private void Consultar()
         {
+            var resp = _servicoAgenda.RecuperarListaOcorrencia(_data.Date);
+
+            gcOcorrencias.DataSource = resp;
+            gvOcorrencias.BestFitColumns();
         }
 
         private void btSair_Click(object sender, EventArgs e)

@@ -38,5 +38,10 @@ namespace SGServico.Servicos
         {
             _repositorio.GravarAgendaOcorrencia(ocorrencia);
         }
+
+        public List<AgendaOcorrencia> RecuperarListaOcorrencia(DateTime data)
+        {
+            return _repositorio.ListaOcorrencia(data);
+        }
     }
 }

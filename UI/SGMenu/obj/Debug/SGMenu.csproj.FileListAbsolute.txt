@@ -24,14 +24,14 @@ D:\Desenvolvimento\SGSalao\UI\SGMenu\bin\Debug\SGProfissional.pdb
 D:\Desenvolvimento\SGSalao\SG\bin\Debug\SGMenu.exe.config
 D:\Desenvolvimento\SGSalao\SG\bin\Debug\SGMenu.exe
 D:\Desenvolvimento\SGSalao\SG\bin\Debug\SGMenu.pdb
-D:\Desenvolvimento\SGSalao\bin\Debug\SGMenu.exe.config
-D:\Desenvolvimento\SGSalao\bin\Debug\SGMenu.exe
-D:\Desenvolvimento\SGSalao\bin\Debug\SGMenu.pdb
+D:\Desenvolvimento\SGSalao\bin\Debug\MN Centro de Beleza.exe.config
+D:\Desenvolvimento\SGSalao\bin\Debug\MN Centro de Beleza.exe
+D:\Desenvolvimento\SGSalao\bin\Debug\MN Centro de Beleza.pdb
 D:\Desenvolvimento\SGSalao\UI\SGMenu\obj\Debug\SGMenu.csprojResolveAssemblyReference.cache
 D:\Desenvolvimento\SGSalao\UI\SGMenu\obj\Debug\SGMenu.fMenu.resources
 D:\Desenvolvimento\SGSalao\UI\SGMenu\obj\Debug\SGMenu.frmLogin.resources
 D:\Desenvolvimento\SGSalao\UI\SGMenu\obj\Debug\SGMenu.Properties.Resources.resources
 D:\Desenvolvimento\SGSalao\UI\SGMenu\obj\Debug\SGMenu.csproj.GenerateResource.Cache
-D:\Desenvolvimento\SGSalao\UI\SGMenu\obj\Debug\SGMenu.exe.licenses
-D:\Desenvolvimento\SGSalao\UI\SGMenu\obj\Debug\SGMenu.exe
-D:\Desenvolvimento\SGSalao\UI\SGMenu\obj\Debug\SGMenu.pdb
+D:\Desenvolvimento\SGSalao\UI\SGMenu\obj\Debug\MN Centro de Beleza.exe.licenses
+D:\Desenvolvimento\SGSalao\UI\SGMenu\obj\Debug\MN Centro de Beleza.exe
+D:\Desenvolvimento\SGSalao\UI\SGMenu\obj\Debug\MN Centro de Beleza.pdb

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using SGCore.Utils;
 using SGEntidades.Entidades;
@@ -247,5 +248,40 @@ namespace SGRepositorio.Repositorio
             }
         }
 
+        public List<AgendaOcorrencia> ListaOcorrencia(DateTime data)
+        {
+            try
+            {
+                var list = new List<AgendaOcorrencia>();
+                _connection.Conexao.Open();
+                var sql = Resource.Agenda.RecuperarListaOcorrencias;
+                var command = new SqlCommand(sql, _connection.Conexao);
+                command.Parameters.AddWithValue("@Data", data);
+
+
+                using (var reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        var agenda = new AgendaOcorrenciaCreator(reader, "O",
+                                        new AgendaCreator(reader, "A",
+                                            new ProfissionalCreator(reader, "P"),
+                                            new ClienteCreator(reader, "C"))).Create();
+
+
+                        list.Add(agenda);
+                    }
+                }
+                return list;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Ocorreu um erro ao Recuperar Lista de agendas do dia", ex);
+            }
+            finally
+            {
+                _connection.Conexao.Close();
+            }
+        }
     }
 }

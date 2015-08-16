@@ -31,6 +31,11 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmOcorrencia));
             this.gcOcorrencias = new DevExpress.XtraGrid.GridControl();
             this.gvOcorrencias = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colCliente = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colHora = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colProfissional = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colDataAgenda = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colMotivo = new DevExpress.XtraGrid.Columns.GridColumn();
             this.btSair = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.gcOcorrencias)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvOcorrencias)).BeginInit();
@@ -51,9 +56,55 @@
             // 
             // gvOcorrencias
             // 
+            this.gvOcorrencias.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colCliente,
+            this.colHora,
+            this.colProfissional,
+            this.colDataAgenda,
+            this.colMotivo});
             this.gvOcorrencias.GridControl = this.gcOcorrencias;
             this.gvOcorrencias.Name = "gvOcorrencias";
             this.gvOcorrencias.OptionsView.ShowGroupPanel = false;
+            // 
+            // colCliente
+            // 
+            this.colCliente.Caption = "Cliente";
+            this.colCliente.FieldName = "Agenda.Cliente.Nome";
+            this.colCliente.Name = "colCliente";
+            this.colCliente.Visible = true;
+            this.colCliente.VisibleIndex = 0;
+            // 
+            // colHora
+            // 
+            this.colHora.Caption = "Data Cancelamento";
+            this.colHora.FieldName = "DataHora";
+            this.colHora.Name = "colHora";
+            this.colHora.Visible = true;
+            this.colHora.VisibleIndex = 1;
+            // 
+            // colProfissional
+            // 
+            this.colProfissional.Caption = "Profissional";
+            this.colProfissional.FieldName = "Agenda.Profissional.Nome";
+            this.colProfissional.Name = "colProfissional";
+            this.colProfissional.Visible = true;
+            this.colProfissional.VisibleIndex = 2;
+            // 
+            // colDataAgenda
+            // 
+            this.colDataAgenda.Caption = "Data Agenda";
+            this.colDataAgenda.FieldName = "Agenda.Data";
+            this.colDataAgenda.Name = "colDataAgenda";
+            this.colDataAgenda.Visible = true;
+            this.colDataAgenda.VisibleIndex = 3;
+            // 
+            // colMotivo
+            // 
+            this.colMotivo.Caption = "Motivo";
+            this.colMotivo.FieldName = "Motivo";
+            this.colMotivo.Name = "colMotivo";
+            this.colMotivo.Visible = true;
+            this.colMotivo.VisibleIndex = 4;
             // 
             // btSair
             // 
@@ -73,7 +124,10 @@
             this.ClientSize = new System.Drawing.Size(471, 294);
             this.Controls.Add(this.btSair);
             this.Controls.Add(this.gcOcorrencias);
+            this.MaximizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(487, 333);
             this.Name = "frmOcorrencia";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Ocorrências";
             ((System.ComponentModel.ISupportInitialize)(this.gcOcorrencias)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvOcorrencias)).EndInit();
@@ -86,5 +140,10 @@
         private DevExpress.XtraGrid.GridControl gcOcorrencias;
         private DevExpress.XtraGrid.Views.Grid.GridView gvOcorrencias;
         private DevExpress.XtraEditors.SimpleButton btSair;
+        private DevExpress.XtraGrid.Columns.GridColumn colCliente;
+        private DevExpress.XtraGrid.Columns.GridColumn colHora;
+        private DevExpress.XtraGrid.Columns.GridColumn colProfissional;
+        private DevExpress.XtraGrid.Columns.GridColumn colDataAgenda;
+        private DevExpress.XtraGrid.Columns.GridColumn colMotivo;
     }
 }

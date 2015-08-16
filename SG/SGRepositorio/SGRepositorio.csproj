@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="Connection\ResolveConnection.cs" />
     <Compile Include="Creator\AgendaCreator.cs" />
+    <Compile Include="Creator\AgendaOcorrenciaCreator.cs" />
     <Compile Include="Creator\BaseCreator.cs" />
     <Compile Include="Creator\ClienteCreator.cs" />
     <Compile Include="Creator\ProfissionalCreator.cs" />

@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DevExpress.XtraGrid.Columns;
 using SGCliente.Properties;
 using SGEntidades.Entidades;
 using SGEntidades.Enum;
@@ -63,7 +64,8 @@ namespace SGCliente
 
             if (
                 MessageBox.Show(Resources.ApagarCliente, Resources.atencao, MessageBoxButtons.YesNo,
-                    MessageBoxIcon.Question) == DialogResult.No) return;
+                    MessageBoxIcon.Question) == DialogResult.No)
+                return;
 
             var cliente = gvClientes.GetFocusedRow() as Cliente;
 
@@ -104,5 +106,12 @@ namespace SGCliente
             }
         }
 
+        private void txtCliente_EditValueChanged(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(txtCliente.Text))
+                gvClientes.Columns["Nome"].FilterInfo = new ColumnFilterInfo(string.Format("[Nome] LIKE '{0}%'", txtCliente.Text));
+            else
+                gvClientes.ClearColumnsFilter();
+        }
     }
 }
