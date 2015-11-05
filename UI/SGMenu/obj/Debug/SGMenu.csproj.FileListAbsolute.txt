@@ -35,3 +35,4 @@ D:\Desenvolvimento\SGSalao\UI\SGMenu\obj\Debug\SGMenu.csproj.GenerateResource.Ca
 D:\Desenvolvimento\SGSalao\UI\SGMenu\obj\Debug\MN Centro de Beleza.exe.licenses
 D:\Desenvolvimento\SGSalao\UI\SGMenu\obj\Debug\MN Centro de Beleza.exe
 D:\Desenvolvimento\SGSalao\UI\SGMenu\obj\Debug\MN Centro de Beleza.pdb
+C:\Projects\SGSalao\bin\Debug\MN Centro de Beleza.exe.config
